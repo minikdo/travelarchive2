@@ -11,21 +11,39 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import json
+
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 
 
-# Quick-start development settings - unsuitable for production
+# JSON-based secrets module
+with open(os.path.join(BASE_DIR, 'travelarchive2', 'settings', 'secrets.json')) as f:  # noqa
+    secrets = json.loads(f.read())
+
+    def get_secret(setting, secrets=secrets):
+        '''Get the secret variable or return explicit exception.'''
+        try:
+            return secrets[setting]
+        except KeyError:
+            error_msg = 'Set the {0} environment variable'.format(setting)
+            raise ImproperlyConfigured(error_msg)
+
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#cl^$ms87@av)%^v5)&osshwi82hzh&=j7o9z5^i3c0o1=w(o7'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -54,7 +72,7 @@ ROOT_URLCONF = 'travelarchive2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
@@ -113,8 +131,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = '/static/'
+
+# Auth
+# LOGIN_REDIRECT_URL = '/inventory/'
+# LOGIN_URL = '/accounts/login/'
+# LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# Admin settings
+ADMIN_EMAIL = get_secret('ADMIN_EMAIL')
+
+# Sessions
+SESSION_COOKIE_AGE = 86400
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
