@@ -1,0 +1,8 @@
+/.venv/
+/.envrc
+/static/admin/
+/static/autocomplete_light/
+/db.sqlite3
+__pycache__/
+.project
+secrets.json
