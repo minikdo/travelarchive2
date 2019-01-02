@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Prata|Source+Sans+Pro:300,400');
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    font-family: "Source Sans Pro", "Open Sans", sans-serif;
+    color: #0091b5;
+    font-size: 1.7rem;
+}
+.navbar div ul li {
+    float: right;
+}
+h1 {
+    font-family: 'Prata', sans-serif;
+    margin-bottom: 30px;
+    color: #2a4a8b;
+    border-bottom: 2px solid #f8d90f;
+    padding-bottom: 10px;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+input[type=submit] {
+    color:  #db5000;
+    /* background-color: #f8d90f; */
+}
+a {
+    color: #db5000;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+    color: #db5000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+h4 {
+    color: #eeba00;
+}
+th {
+    color: #db5000;
+}
+label {
+    color: #db5000;
+}
+td, th {
+    border-bottom: 1px solid #f8d90f;
+}
+.nowrap {
+    white-space: nowrap;
+}
+table.flights tr td:nth-child(5) {
+    text-align: right;
+    padding-right: 10px;
+}
+table.flights tr td:nth-child(6) {
+    text-align: center;
+}
