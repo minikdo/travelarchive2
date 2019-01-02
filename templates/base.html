@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Travel archive</title>
+    <meta name="Author" content="dominik szmek" />
+    <meta name="Copyright" content="MIT" />
+    <meta name="Language" content="pl" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
+  </head>
+  <body>
+
+    <div class="container">
+
+      <!-- navbar -->
+      
+      <div class="row navbar">
+        <div class="twelve columns">
+          <ul>
+	    <li><a href="{% url 'travels:index' %}">Travels</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          
+    	  {% block body %}{% endblock %}
+          
+        </div>
+      </div>
+ 
+    </div>    <!-- end container -->
+  </body>
+</html>

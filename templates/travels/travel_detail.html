@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Travel {{ travel }}</h1>
+
+    {% for country in countries %}
+
+    {% for item in country.country.all %}
+
+    {{ item }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
+    
+    {% endfor %}
+    
+    {% endfor %}
+
+    {% if places %}
+
+    <h4>Places</h4>
+
+    <table>
+    
+    {% for place in places %}
+
+    <tr>
+      <td>{{ place.start_date }}</td>
+      <td>{{ place.end_date }}</td>
+      <td>{{ place.start_date|timesince:place.end_date }}</td>
+      <td>{{ place.city }}</td>
+      <td>{{ place.place }}</td>
+      <td><a href="{% url 'travels:place-update' place.pk %}">[edit]</a></td>
+    </tr>
+    
+
+    {% endfor %}
+
+    </table>
+    
+    {% endif %} {# places #}
+
+    {% if journeys %}
+
+    <h4>Journeys</h4>
+    
+    {% for journey in journeys %}
+
+    {{ journey.start_date }} -- {{ journey.end_date }}
+
+    {{ journey.orig }} -- {{ journey.dest }}
+    
+    {% endfor %}
+    
+    {% endif %} {# journeys #}
+
+    {% if flights %}
+
+    <h4>Flights</h4>
+
+    <table>
+    
+    {% for flight in flights %}
+
+    <tr>
+      <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
+      <td>{{ flight.fldate }}</td>
+      <td>{{ flight.flfrom2.city }} ({{ flight.flfrom2.iata }})</td>
+      <td>&rarr;</td>
+      <td>{{ flight.flto2.city }} ({{ flight.flto2.iata }})</td>
+    </tr>
+
+    {% endfor %}
+
+    </table>
+    
+    {% endif %} {# flights #}
+              
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% if flight %}
+
+<h1>Flight {{ flight.flight_number }}</h1>
+<h4>{{ flight.airline }}</h4>
+
+<table class="table table-striped">
+  <tr>
+    <th>date</th><td>{{ flight.fldate }} ({{ flight.fldate|timesince }})</td>
+    <th>flight no.</th><td>{{ flight.flight_number }}</td>
+  </tr>
+  <tr>
+    <th>from</th>
+    <td>
+      <strong>
+        {{ flight.flfrom2.iata }} /
+        {{ flight.flfrom2.icao }}
+      </strong><br/>
+      {{ flight.flfrom2 }}<br/>
+      {{ flight.flfrom2.country }}
+    </td>
+    <th>to</th>
+    <td>
+      <strong>
+        {{ flight.flto2.iata }} /
+        {{ flight.flto2.icao }}
+      </strong><br/>
+      {{ flight.flto2 }}<br/>
+      {{ flight.flfrom2.country }}
+    </td>
+  </tr>
+  <tr>
+    <th>timezone</th>
+    <td>UTC {{ flight.flfrom2.timezone }}</td>
+    <th>timezone</th>
+    <td>UTC {{ flight.flto2.timezone }}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>alt</th>
+    <td>{{ flight.flfrom2.alt_in_meters }} m / {{ flight.flfrom2.alt }} ft</td>
+    <th>alt</th>
+    <td>{{ flight.flto2.alt_in_meters }} m / {{ flight.flto2.alt }} ft</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>distance</th><td>{{ flight.distance_in_km }} km / {{ flight.distance }} mi</td>
+    <th>duration</th><td>{{ flight.duration }} hrs</td>
+  </tr>
+  <tr>
+    <th>notes</th><td colspan="3">{{ flight.note }}</td>
+  </tr>
+</table>
+
+{% endif %}
+{% endblock %}

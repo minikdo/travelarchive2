@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<h1>Flight list</h1>
+
+<form action="{% url 'flight-index' %}" method="get">
+  {{ form }}
+  <input name="" type="submit" value="search"/>
+</form>
+
+{% if flight_list %}
+<table class="table table-striped flights">
+  <tr class="warning">
+    <th>date</th>
+    <th>from</th>
+    <th>to</th>
+    <th>flight # / airline</th>
+    <th>distance</th>
+    <th>duration</th>
+    <th>plane</th>
+    <th></th>
+  </tr>
+  {% for flight in flight_list %}
+  <tr>
+    <td>{{ flight.fldate|date:"Y-m-d H:i" }}</td>
+    <td title="{{ flight.flfrom2.name }}">
+      <strong>{{ flight.flfrom2.iata }}</strong><br/>{{ flight.flfrom2.city }}</td>
+    <td title="{{ flight.flto2.name }}">
+      <strong>{{ flight.flto2.iata }}</strong><br/>{{ flight.flto2.city }}</td>
+    <td title="{{ flight.note }}"><strong>{{ flight.flight_number }}</strong>{{ flight.note_sign }}<br/>{{ flight.airline }}</td>
+    <td>{{ flight.distance_in_km }} km</td>
+    <td>{{ flight.duration }} hrs</td>
+    <td>{{ flight.plane }}</td>
+    <td><a href="{% url 'flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% include "travels/paginator.html" %}
+{% endif %}
+{% endblock %}

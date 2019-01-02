@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Places</h1>
+
+<form action="{% url 'place-index' %}" method="get">
+  {{ form }}
+  <input name="" type="submit" value="search"/>
+</form>
+
+{% if place_list %}
+<table>
+  <tr>
+    <th>date</th>
+    <th>transport</th>
+    <th>country</th>
+    <th>place</th>
+    <th>station</th>
+    <th>notes</th>
+  </tr>
+  {% for place in place_list %}
+  <tr>
+    <td>{{ place.date|date:"Y-m-d" }}</td>
+    <td>{{ place.transport_type }}</td>
+    <td>{{ place.country_name }}</td>
+    <td>{{ place.place }}</td>
+    <td>{{ place.station }}</td>
+    <td>{{ place.notes }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% include "travels/paginator.html" %}
+{% endif %}
+{% endblock %}

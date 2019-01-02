@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Travels</h1>
+
+<hr>
+  
+{% if object_list %}
+
+<table>
+  
+{% for item in object_list %}
+
+<tr>
+  <td><a href="{% url 'travels:travel-detail' item.pk %}">#{{ item.pk }}</a></td>
+  <td>{{ item.start_date }} - {{ item.end_date }}</td>
+  <td>
+    {% for country in item.country.all %}
+    {{ country }}, 
+    {% endfor %}
+  </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endif %} {# object_list #}
+
+{% endblock %}
