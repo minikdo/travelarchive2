@@ -4,8 +4,8 @@
 
 <h1>Travels</h1>
 
-<hr>
-  
+<a class="button" href="{% url 'travels:travel-create' %}">add</a>
+
 {% if object_list %}
 
 <table>
@@ -17,9 +17,10 @@
   <td>{{ item.start_date }} - {{ item.end_date }}</td>
   <td>
     {% for country in item.country.all %}
-    {{ country }}, 
+    {{ country }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
     {% endfor %}
   </td>
+  <td>{{ item.notes }}</td>
 </tr>
 
 {% endfor %}

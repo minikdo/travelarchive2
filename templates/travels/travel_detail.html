@@ -2,76 +2,93 @@
 
 {% block body %}
 
-<h1>Travel {{ travel }}</h1>
+<h1>Travel {{ travel.pk }}</h1>
 
-    {% for country in countries %}
+<h2>
+  {% for item in travel.country.all %}
+  {{ item }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
+  {% endfor %}
+</h2>
+{{ travel.start_date }} &mdash; {{ travel.end_date}}
+<span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
+<a href="{% url 'travels:travel-update' travel.pk %}">[edit]</a>
+<p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
 
-    {% for item in country.country.all %}
+{% if places %}
 
-    {{ item }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
-    
-    {% endfor %}
-    
-    {% endfor %}
+<h4>Places</h4>
 
-    {% if places %}
+<a class="button" href="{% url 'travels:place-create' travel.pk %}">add</a>
 
-    <h4>Places</h4>
+<table>
+  
+  {% for place in places %}
 
-    <table>
-    
-    {% for place in places %}
+  <tr>
+    <td><a href="{% url 'travels:place-update' place.pk %}">{{ forloop.counter }}</a></td>
+    <td>{{ place.start_date }}</td>
+    <td>&mdash;</td>
+    <td>{{ place.end_date }}</td>
+    <td><span class="grey">{{ place.start_date|timesince:place.end_date }}</span></td>
+    <td><strong>{{ place.country.country_name }}</strong></td>
+    <td>{{ place.city }}</td>
+    <td>{{ place.place|default_if_none:'' }}</td>
+  </tr>
+  
+  {% endfor %}
 
-    <tr>
-      <td>{{ place.start_date }}</td>
-      <td>{{ place.end_date }}</td>
-      <td>{{ place.start_date|timesince:place.end_date }}</td>
-      <td>{{ place.city }}</td>
-      <td>{{ place.place }}</td>
-      <td><a href="{% url 'travels:place-update' place.pk %}">[edit]</a></td>
-    </tr>
-    
+</table>
 
-    {% endfor %}
+{% endif %} {# places #}
 
-    </table>
-    
-    {% endif %} {# places #}
+{% if journeys %}
 
-    {% if journeys %}
+<h4>Journeys</h4>
 
-    <h4>Journeys</h4>
-    
-    {% for journey in journeys %}
+<a class="button" href="{% url 'travels:journey-create' travel.pk %}">add</a>
 
-    {{ journey.start_date }} -- {{ journey.end_date }}
+<table>
+  
+{% for journey in journeys %}
 
-    {{ journey.orig }} -- {{ journey.dest }}
-    
-    {% endfor %}
-    
-    {% endif %} {# journeys #}
+<tr>
+  <td><a href="{% url 'travels:journey-update' journey.pk %}">{{ forloop.counter }}</a></td>
+  <td>{{ journey.start_date}}</td>
+  <td>{{ journey.end_date|default_if_none:'' }}</td>
+  <td>{{ journey.transport_type.name }}</td>
+  <td>{{ journey.orig }}</td>
+  <td>&rarr;</td>
+  <td>{{ journey.dest }}</td>
+  <td>{{ journey.notes|default_if_none:'' }}</td>
+</tr>
 
-    {% if flights %}
+{% endfor %}
 
-    <h4>Flights</h4>
+</table>
 
-    <table>
-    
-    {% for flight in flights %}
+{% endif %} {# journeys #}
 
-    <tr>
-      <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
-      <td>{{ flight.fldate }}</td>
-      <td>{{ flight.flfrom2.city }} ({{ flight.flfrom2.iata }})</td>
-      <td>&rarr;</td>
-      <td>{{ flight.flto2.city }} ({{ flight.flto2.iata }})</td>
-    </tr>
+{% if flights %}
 
-    {% endfor %}
+<h4>Flights</h4>
 
-    </table>
-    
-    {% endif %} {# flights #}
-              
+<table>
+  
+  {% for flight in flights %}
+
+  <tr>
+    <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
+    <td>{{ flight.fldate }}</td>
+    <td>{{ flight.flfrom2.city }} ({{ flight.flfrom2.iata }})</td>
+    <td>&rarr;</td>
+    <td>{{ flight.flto2.city }} ({{ flight.flto2.iata }})</td>
+    <td><span class="grey">{{ flight.note }}</span></td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+
+{% endif %} {# flights #}
+
 {% endblock %}
