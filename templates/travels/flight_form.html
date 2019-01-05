@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<h1>Flight</h1>
+
+<form action="" method="post">
+  <div class="row">
+    <div class="five columns">
+
+      {% csrf_token %}
+      
+      {# Include the hidden fields #}
+      {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+      {% endfor %}
+      {# Include the visible fields #}
+      {% for field in form.visible_fields %}
+      
+      {% if forloop.counter == 5 or forloop.counter == 10 %}
+
+    </div>
+    <div class="three columns">
+    
+      {% endif %}
+      
+      <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+      </div>
+
+      {% endfor %}
+    
+    </div>
+  </div>
+  <hr>
+  <input name="" type="submit" value="save"/>
+</form>
+
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+{{ form.media }}
+{% endblock %}
