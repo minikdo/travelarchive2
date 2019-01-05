@@ -1,6 +1,9 @@
 from django import forms
 
-from .models import Place, Country, Travel
+from dal.autocomplete import ModelSelect2Multiple
+from datetime import date
+
+from .models import Place, Country, Travel, Journey, Airport
 
 
 class PlaceForm(forms.ModelForm):
@@ -9,8 +12,9 @@ class PlaceForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         country_ids = []
-        
-        for country in Travel.objects.get(pk=19).country.all():
+
+        for country in Travel.objects.get(pk=session_data['travel'])\
+                                     .country.all():
             country_ids.append(country.pk)
 
         # get counties only for that travel
@@ -19,13 +23,16 @@ class PlaceForm(forms.ModelForm):
                                               .filter(pk__in=country_ids)\
                                               .order_by('pk')
 
-    start_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
-                                 input_formats=['%Y-%m-%d'])
+    start_date = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d',
+                               attrs={'autofocus': True}),
+        input_formats=['%Y-%m-%d'])
     end_date = forms.DateField(initial="",
                                widget=forms.DateInput(format='%Y-%m-%d'),
                                input_formats=['%Y-%m-%d'])
     country = forms.ModelChoiceField(Country.objects.all(), empty_label=None)
-    notes = forms.CharField(widget=forms.Textarea(attrs={'cols': 35,
+    notes = forms.CharField(required=False,
+                            widget=forms.Textarea(attrs={'cols': 35,
                                                          'rows': 4,
                                                          'maxlength': 150}))
     
@@ -33,3 +40,66 @@ class PlaceForm(forms.ModelForm):
         model = Place
         fields = ['start_date', 'end_date', 'country', 'city',
                   'place', 'gps', 'notes']
+
+
+class TravelForm(forms.ModelForm):
+
+    # from django.contrib.admin import widgets
+    # start_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                                 # localize=True)
+    start_date = forms.DateField(initial=date.today(),
+                                 widget=forms.DateInput(format='%Y-%m-%d'),
+                                 input_formats=['%Y-%m-%d'])
+    end_date = forms.DateField(initial=date.today(),
+                               widget=forms.DateInput(format='%Y-%m-%d'),
+                               input_formats=['%Y-%m-%d'])
+    
+    class Meta:
+        model = Travel
+        fields = ['country', 'start_date', 'end_date', 'notes']
+        widgets = {'country': ModelSelect2Multiple(
+            url='travels:country-autocomplete',
+            attrs={'class': 'form-control'})
+        }
+
+
+class JourneyForm(forms.ModelForm):
+
+    # def __init__(self, *args, session_data=None, **kwargs):
+        # super().__init__(*args, **kwargs)
+    
+    start_date = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d',
+                               attrs={'autofocus': True}),
+        input_formats=['%Y-%m-%d'])
+    end_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
+                               input_formats=['%Y-%m-%d'],
+                               required=False)
+    notes = forms.CharField(required=False,
+                            widget=forms.Textarea(attrs={'cols': 35,
+                                                         'rows': 4,
+                                                         'maxlength': 150}))
+
+    field_order = ['start_date', 'end_date', 'transport_type',
+                   'orig', 'dest', 'notes']
+    
+    class Meta:
+        model = Journey
+        fields = ['start_date', 'end_date', 'orig', 'dest',
+                  'notes', 'transport_type']
+
+
+class FlightSearchForm(forms.Form):
+    """ flight search form """
+
+    flfrom = forms.ModelChoiceField(
+        queryset=Airport.objects.exclude(flfrom2=None).order_by('city'),
+        label="from",
+        required=False)
+    flto = forms.ModelChoiceField(
+        queryset=Airport.objects.exclude(flto2=None).order_by('city'),
+        label="to",
+        required=False)
+    # airline = forms.ModelChoiceField(
+        # queryset=Flight.objects.distinct('airline')
+    # )

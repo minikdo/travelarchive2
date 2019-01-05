@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 class Travel(models.Model):
@@ -16,6 +19,9 @@ class Travel(models.Model):
         str = "{} -> {}".format(self.start_date, self.end_date)
         return str
 
+    def get_absolute_url(self):
+        return reverse('travels:travel-detail', kwargs={'pk': self.pk})
+    
 
 class Place(models.Model):
     """ places (hotels, cities visited, etc.) """
@@ -30,9 +36,20 @@ class Place(models.Model):
     gps = models.CharField(max_length=30, blank=True, null=True)
     notes = models.CharField(max_length=150, blank=True, null=True)
 
+    class Meta:
+        ordering = ['start_date']
+        
     def __str__(self):
         str = "{} {} -> {}".format(self.city, self.start_date, self.end_date)
         return str
+
+    def get_absolute_url(self):
+        return reverse('travels:travel-detail', kwargs={'pk': self.travel.pk})
+
+    def clean(self):
+        if self.start_date > self.end_date:
+            raise ValidationError({'start_date':
+                                   _('test Date not within travel dates')})
 
 
 class Journey(models.Model):
@@ -47,10 +64,16 @@ class Journey(models.Model):
     transport_type = models.ForeignKey('Transport', null=True,
                                        on_delete=models.SET_NULL)
 
+    class Meta:
+        ordering = ['start_date']
+
     def __str__(self):
         str = "{} {} {} {}".format(self.start_date, self.end_date,
                                    self.orig, self.dest)
         return str
+
+    def get_absolute_url(self):
+        return reverse('travels:travel-detail', kwargs={'pk': self.travel.pk})
 
 
 class Flight(models.Model):
@@ -87,6 +110,9 @@ class Flight(models.Model):
     # def get_absolute_url(self):
     #     return reverse('flights:detail', kwargs={'pk': self.pk})
 
+    class Meta:
+        ordering = ['fldate']
+    
     @property
     def note_sign(self):
         """ display * when there is a note """
