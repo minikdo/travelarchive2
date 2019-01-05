@@ -18,6 +18,10 @@ import datetime
 class IndexView(ListView):
 
     model = Travel
+
+    def get_queryset(self):
+        qs = Travel.objects.all().prefetch_related('country')
+        return qs
     
     
 class TravelDetailView(TemplateView):
