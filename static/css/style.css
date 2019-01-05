@@ -19,6 +19,10 @@ h1 {
     border-bottom: 2px solid #f8d90f;
     padding-bottom: 10px;
 }
+h4 {
+    padding-top: 6px;
+    color: #eeba00;
+}
 ul {
     list-style-type: none;
 }
@@ -40,9 +44,6 @@ a:hover {
     font-weight: bold;
     text-decoration: underline;
 }
-h4 {
-    color: #eeba00;
-}
 th {
     color: #db5000;
 }
@@ -61,4 +62,7 @@ table.flights tr td:nth-child(5) {
 }
 table.flights tr td:nth-child(6) {
     text-align: center;
+}
+.grey {
+    color: grey;
 }
