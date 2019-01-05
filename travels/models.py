@@ -16,7 +16,7 @@ class Travel(models.Model):
         ordering = ['-start_date']
 
     def __str__(self):
-        str = "{} -> {}".format(self.start_date, self.end_date)
+        str = "#{} {} -> {}".format(self.pk, self.start_date, self.end_date)
         return str
 
     def get_absolute_url(self):
@@ -80,38 +80,30 @@ class Flight(models.Model):
     """ flights """
 
     travel = models.ForeignKey('Travel', null=True, on_delete=models.SET_NULL)
-    fldate = models.DateTimeField()
-    flfrom = models.CharField(max_length=4)  # TO DELETE
-    flfrom2 = models.ForeignKey('Airport',
-                                related_name='flfrom2',
-                                blank=True, null=True,
-                                on_delete=models.SET_NULL)
-    flto = models.CharField(max_length=4)  # TO DELETE
-    flto2 = models.ForeignKey('Airport',
-                              related_name='flto2',
-                              blank=True, null=True,
-                              on_delete=models.SET_NULL)
+    date = models.DateTimeField()
+    orig = models.ForeignKey('Airport',
+                             related_name='orig',
+                             blank=True, null=True,
+                             on_delete=models.SET_NULL)
+    dest = models.ForeignKey('Airport',
+                             related_name='dest',
+                             blank=True, null=True,
+                             on_delete=models.SET_NULL)
     flight_number = models.CharField(max_length=20, blank=True, null=True)
     airline = models.CharField(max_length=40, blank=True, null=True)
     distance = models.IntegerField(blank=True, null=True)
     duration = models.TimeField(blank=True, null=True)
     seat = models.CharField(max_length=6, blank=True, null=True)
-    seat_type = models.CharField(max_length=2, blank=True, null=True)
-    flclass = models.CharField(max_length=2, blank=True, null=True)
-    reason = models.CharField(max_length=2, blank=True, null=True)
     plane = models.CharField(max_length=40, blank=True, null=True)
     registration = models.CharField(max_length=10, blank=True, null=True)
-    trip = models.CharField(max_length=5, blank=True, null=True)
     note = models.CharField(max_length=100, blank=True, null=True)
-    from_oid = models.CharField(max_length=10, blank=True, null=True)
-    to_oid = models.CharField(max_length=10, blank=True, null=True)
     airline_oid = models.CharField(max_length=10, blank=True, null=True)
 
-    # def get_absolute_url(self):
-    #     return reverse('flights:detail', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('travels:flight-detail', kwargs={'pk': self.pk})
 
     class Meta:
-        ordering = ['fldate']
+        ordering = ['date']
     
     @property
     def note_sign(self):
@@ -128,7 +120,7 @@ class Flight(models.Model):
         return round(self.distance/0.62137)
     
     def __str__(self):
-        str = "{}, {} -> {}".format(self.fldate, self.flfrom, self.flto)
+        str = "{}, {} -> {}".format(self.date, self.orig, self.dest)
         return str
 
 

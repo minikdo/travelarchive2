@@ -4,11 +4,13 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 from dal.autocomplete import Select2QuerySetView
 
-from .models import Travel, Place, Journey, Flight, Country
-from .forms import PlaceForm, TravelForm, JourneyForm, FlightSearchForm
+from .models import Travel, Place, Journey, Flight, Country, Airport
+from .forms import PlaceForm, TravelForm, JourneyForm, FlightSearchForm,\
+    FlightForm
 
 import datetime
 
@@ -178,6 +180,19 @@ class CountryAutocomplete(Select2QuerySetView):
         return qs
 
 
+class AirportAutocomplete(Select2QuerySetView):
+    
+    def get_queryset(self):
+
+        qs = Airport.objects.all()
+        
+        if self.q:
+            qs = qs.filter(Q(city__istartswith=self.q)|\
+                           Q(iata__icontains=self.q))
+            
+        return qs
+
+
 class FlightIndexView(FormMixin, ListView):
     """ list of flights """
 
@@ -188,15 +203,22 @@ class FlightIndexView(FormMixin, ListView):
     def get_queryset(self):
         query = Flight.objects.all()
 
-        if self.flfrom:
-            query = query.filter(flfrom2=self.flfrom)
-        if self.flto:
-            query = query.filter(flto2=self.flto)
+        if self.orig:
+            query = query.filter(orig=self.orig)
+        if self.dest:
+            query = query.filter(dest=self.dest)
             
-        return query.order_by('-fldate')
+        return query.order_by('-date')
     
     def dispatch(self, request, *args, **kwargs):
     
-        self.flfrom = request.GET.get('flfrom', None)
-        self.flto = request.GET.get('flto', None)
+        self.orig = request.GET.get('orig', None)
+        self.dest = request.GET.get('dest', None)
         return super().dispatch(request, *args, **kwargs)
+
+
+class FlightUpdate(UpdateView):
+    """ update a flight """
+
+    model = Flight
+    form_class = FlightForm

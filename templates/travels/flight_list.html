@@ -23,16 +23,17 @@
   </tr>
   {% for flight in flight_list %}
   <tr>
-    <td>{{ flight.fldate|date:"Y-m-d H:i" }}</td>
-    <td title="{{ flight.flfrom2.name }}">
-      <strong>{{ flight.flfrom2.iata }}</strong><br/>{{ flight.flfrom2.city }}</td>
-    <td title="{{ flight.flto2.name }}">
-      <strong>{{ flight.flto2.iata }}</strong><br/>{{ flight.flto2.city }}</td>
+    <td>{{ flight.date|date:"Y-m-d H:i" }}</td>
+    <td title="{{ flight.orig.name }}">
+      <strong>{{ flight.orig.iata }}</strong><br/>{{ flight.orig.city }}</td>
+    <td title="{{ flight.dest.name }}">
+      <strong>{{ flight.dest.iata }}</strong><br/>{{ flight.dest.city }}</td>
     <td title="{{ flight.note }}"><strong>{{ flight.flight_number }}</strong>{{ flight.note_sign }}<br/>{{ flight.airline }}</td>
     <td>{{ flight.distance_in_km }} km</td>
     <td>{{ flight.duration }} hrs</td>
     <td>{{ flight.plane }}</td>
-    <td><a href="{% url 'travels:flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
+    <td><span class="grey">{{ flight.travel_id }}</span></br>
+      <a href="{% url 'travels:flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
   </tr>
   {% endfor %}
 </table>

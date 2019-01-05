@@ -25,6 +25,10 @@ urlpatterns = [
     path('journey/<int:pk>/delete/', views.JourneyDelete.as_view(),
          name='journey-delete'),
     path('flights/', views.FlightIndexView.as_view(), name='flight-index'),
+    path('flights/<int:pk>/update/', views.FlightUpdate.as_view(),
+         name='flight-update'),
     path('country-autocomplete', views.CountryAutocomplete.as_view(),
          name='country-autocomplete'),
+    path('airport-autocomplete', views.AirportAutocomplete.as_view(),
+         name='airport-autocomplete'),
 ]

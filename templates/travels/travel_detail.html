@@ -17,7 +17,7 @@
 
 <h4>Places</h4>
 
-<a class="button" href="{% url 'travels:place-create' travel.pk %}">add</a>
+<a class="button button-primary" href="{% url 'travels:place-create' travel.pk %}">add place</a>
 
 {% if places %}
 
@@ -46,7 +46,7 @@
 
 <h4>Journeys</h4>
 
-<a class="button" href="{% url 'travels:journey-create' travel.pk %}">add</a>
+<a class="button button-primary" href="{% url 'travels:journey-create' travel.pk %}">add journey</a>
 
 {% if journeys %}
 
@@ -81,12 +81,12 @@
 
   <tr>
     <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
-    <td>{{ flight.fldate }}</td>
-    <td>{{ flight.flfrom2.city }} ({{ flight.flfrom2.iata }})</td>
+    <td>{{ flight.date }}</td>
+    <td>{{ flight.orig.city }} ({{ flight.orig.iata }})</td>
     <td>&rarr;</td>
-    <td>{{ flight.flto2.city }} ({{ flight.flto2.iata }})</td>
+    <td>{{ flight.dest.city }} ({{ flight.dest.iata }})</td>
     <td>{{ flight.distance_in_km }} km</td>
-    <td><span class="grey">{{ flight.note }}</span></td>
+    <td><span class="grey">{{ flight.note|default_if_none:'' }}</span></td>
   </tr>
 
   {% endfor %}

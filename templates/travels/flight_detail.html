@@ -8,41 +8,41 @@
 
 <table class="table table-striped">
   <tr>
-    <th>date</th><td>{{ flight.fldate }} ({{ flight.fldate|timesince }})</td>
+    <th>date</th><td>{{ flight.date }} ({{ flight.date|timesince }})</td>
     <th>flight no.</th><td>{{ flight.flight_number }}</td>
   </tr>
   <tr>
     <th>from</th>
     <td>
       <strong>
-        {{ flight.flfrom2.iata }} /
-        {{ flight.flfrom2.icao }}
+        {{ flight.orig.iata }} /
+        {{ flight.orig.icao }}
       </strong><br/>
-      {{ flight.flfrom2 }}<br/>
-      {{ flight.flfrom2.country }}
+      {{ flight.orig }}<br/>
+      {{ flight.orig.country }}
     </td>
     <th>to</th>
     <td>
       <strong>
-        {{ flight.flto2.iata }} /
-        {{ flight.flto2.icao }}
+        {{ flight.dest.iata }} /
+        {{ flight.dest.icao }}
       </strong><br/>
-      {{ flight.flto2 }}<br/>
-      {{ flight.flfrom2.country }}
+      {{ flight.dest }}<br/>
+      {{ flight.orig.country }}
     </td>
   </tr>
   <tr>
     <th>timezone</th>
-    <td>UTC {{ flight.flfrom2.timezone }}</td>
+    <td>UTC {{ flight.orig.timezone }}</td>
     <th>timezone</th>
-    <td>UTC {{ flight.flto2.timezone }}</td>
+    <td>UTC {{ flight.dest.timezone }}</td>
     <td></td>
   </tr>
   <tr>
     <th>alt</th>
-    <td>{{ flight.flfrom2.alt_in_meters }} m / {{ flight.flfrom2.alt }} ft</td>
+    <td>{{ flight.orig.alt_in_meters }} m / {{ flight.orig.alt }} ft</td>
     <th>alt</th>
-    <td>{{ flight.flto2.alt_in_meters }} m / {{ flight.flto2.alt }} ft</td>
+    <td>{{ flight.dest.alt_in_meters }} m / {{ flight.dest.alt }} ft</td>
     <td></td>
   </tr>
   <tr>
@@ -54,9 +54,11 @@
     <th>airplane</th><td>{{ flight.plane }}</td>
   </tr>
   <tr>
-    <th>notes</th><td colspan="3">{{ flight.note }}</td>
+    <th>notes</th><td colspan="3">{{ flight.note|default_if_none:'' }} <span class="grey">travel: {{ flight.travel.pk }}</span></td>
   </tr>
 </table>
+
+<a class="button button-primary" href="{% url 'travels:flight-update' object.pk %}">edit flight</a>
 
 {% endif %}
 {% endblock %}

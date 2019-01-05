@@ -1,9 +1,10 @@
 from django import forms
 
-from dal.autocomplete import ModelSelect2Multiple
+from dal.autocomplete import ModelSelect2Multiple, ModelSelect2
 from datetime import date
 
-from .models import Place, Country, Travel, Journey, Airport
+from .models import Place, Country, Travel, Journey, Airport,\
+    Flight
 
 
 class PlaceForm(forms.ModelForm):
@@ -89,15 +90,29 @@ class JourneyForm(forms.ModelForm):
                   'notes', 'transport_type']
 
 
+class FlightForm(forms.ModelForm):
+
+    class Meta:
+        model = Flight
+        fields = '__all__'
+        widgets = {'orig': ModelSelect2(
+            url='travels:airport-autocomplete',
+            attrs={'class': 'form-control'}),
+                   'dest': ModelSelect2(
+                       url='travels:airport-autocomplete',
+                       attrs={'class': 'form-control'})
+        }
+        
+
 class FlightSearchForm(forms.Form):
     """ flight search form """
 
-    flfrom = forms.ModelChoiceField(
-        queryset=Airport.objects.exclude(flfrom2=None).order_by('city'),
+    orig = forms.ModelChoiceField(
+        queryset=Airport.objects.exclude(orig=None).order_by('city'),
         label="from",
         required=False)
-    flto = forms.ModelChoiceField(
-        queryset=Airport.objects.exclude(flto2=None).order_by('city'),
+    dest = forms.ModelChoiceField(
+        queryset=Airport.objects.exclude(dest=None).order_by('city'),
         label="to",
         required=False)
     # airline = forms.ModelChoiceField(
