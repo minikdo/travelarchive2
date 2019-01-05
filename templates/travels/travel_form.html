@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block body %}
 
-<h1>Place</h1>
+<h1>Travel</h1>
 
 <form action="" method="post">
   {% csrf_token %}
@@ -10,4 +11,10 @@
   <input name="" type="submit" value="save"/>
 </form>
 
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+{{ form.media }}
 {% endblock %}

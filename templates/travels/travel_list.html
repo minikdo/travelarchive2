@@ -4,7 +4,7 @@
 
 <h1>Travels</h1>
 
-<a class="button" href="{% url 'travels:travel-create' %}">add</a>
+<a class="button button-primary" href="{% url 'travels:travel-create' %}">add travel</a>
 
 {% if object_list %}
 
@@ -20,7 +20,7 @@
     {{ country }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
     {% endfor %}
   </td>
-  <td>{{ item.notes }}</td>
+  <td>{{ item.notes|default_if_none:'' }}</td>
 </tr>
 
 {% endfor %}

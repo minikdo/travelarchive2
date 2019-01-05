@@ -4,10 +4,56 @@
 
 <h1>Journey</h1>
 
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input name="" type="submit" value="save"/>
-</form>
+{% if not object %}
+{% if last_journey %}
+
+<p><span class="grey">previous record: {{ last_journey.start_date}},
+    {{ last_journey.end_date|default_if_none:'' }}
+    {{ last_journey.transport_type.name }},
+    {{ last_journey.orig }}
+    &rarr;</td>
+{{ last_journey.dest }}
+</span></p>
+
+{% endif %}
+{% endif %}
+
+<div class="row">
+  <div class="four columns">
+    <form action="" method="post">
+
+      {% csrf_token %}
+      
+      {# Include the hidden fields #}
+      {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+      {% endfor %}
+      {# Include the visible fields #}
+      {% for field in form.visible_fields %}
+      
+      {% if forloop.counter == 4 %}
+
+  </div>
+  <div class="six columns">
+    
+    {% endif %}
+    
+    <div class="fieldWrapper">
+      {{ field.errors }}
+      {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    
+    
+    <input name="" type="submit" value="save"/>
+  </form>
+  </div>
+</div>
+
+<hr>
+
+{% if object %}
+<a class="button" href="{% url 'travels:journey-delete' object.pk %}">delete this journey</a>
+{% endif %}
 
 {% endblock %}

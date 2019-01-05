@@ -11,14 +11,15 @@
 </h2>
 {{ travel.start_date }} &mdash; {{ travel.end_date}}
 <span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
-<a href="{% url 'travels:travel-update' travel.pk %}">[edit]</a>
+<a href="{% url 'travels:travel-update' travel.pk %}">Edit</a>
 <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
 
-{% if places %}
 
 <h4>Places</h4>
 
 <a class="button" href="{% url 'travels:place-create' travel.pk %}">add</a>
+
+{% if places %}
 
 <table>
   
@@ -32,7 +33,9 @@
     <td><span class="grey">{{ place.start_date|timesince:place.end_date }}</span></td>
     <td><strong>{{ place.country.country_name }}</strong></td>
     <td>{{ place.city }}</td>
-    <td>{{ place.place|default_if_none:'' }}</td>
+    <td>{{ place.place|default_if_none:'' }}</br>
+      <span class="grey">{{ place.notes|default_if_none:'' }}</span>
+    </td>
   </tr>
   
   {% endfor %}
@@ -41,11 +44,11 @@
 
 {% endif %} {# places #}
 
-{% if journeys %}
-
 <h4>Journeys</h4>
 
 <a class="button" href="{% url 'travels:journey-create' travel.pk %}">add</a>
+
+{% if journeys %}
 
 <table>
   
@@ -59,7 +62,7 @@
   <td>{{ journey.orig }}</td>
   <td>&rarr;</td>
   <td>{{ journey.dest }}</td>
-  <td>{{ journey.notes|default_if_none:'' }}</td>
+  <td><span class="grey">{{ journey.notes|default_if_none:'' }}</span></td>
 </tr>
 
 {% endfor %}
@@ -82,6 +85,7 @@
     <td>{{ flight.flfrom2.city }} ({{ flight.flfrom2.iata }})</td>
     <td>&rarr;</td>
     <td>{{ flight.flto2.city }} ({{ flight.flto2.iata }})</td>
+    <td>{{ flight.distance_in_km }} km</td>
     <td><span class="grey">{{ flight.note }}</span></td>
   </tr>
 

@@ -4,10 +4,36 @@
 
 <h1>Place</h1>
 
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input name="" type="submit" value="save"/>
-</form>
+<div class="row">
+  <div class="four columns">
+    <form action="" method="post">
+
+      {% csrf_token %}
+      
+      {# Include the hidden fields #}
+      {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+      {% endfor %}
+      {# Include the visible fields #}
+      {% for field in form.visible_fields %}
+      
+      {% if forloop.counter == 5 %}
+
+  </div>
+  <div class="six columns">
+    
+    {% endif %}
+    
+    <div class="fieldWrapper">
+      {{ field.errors }}
+      {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    
+    
+    <input name="" type="submit" value="save"/>
+  </form>
+  </div>
+</div>
 
 {% endblock %}

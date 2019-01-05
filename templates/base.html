@@ -23,7 +23,9 @@
       <div class="row navbar">
         <div class="twelve columns">
           <ul>
+	    <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
 	    <li><a href="{% url 'travels:index' %}">Travels</a></li>
+	    <li><a href="{% url 'travels:flight-index' %}">Flights</a></li>
           </ul>
         </div>
       </div>
@@ -37,5 +39,7 @@
       </div>
  
     </div>    <!-- end container -->
+
+    {% block footer %}{% endblock %}
   </body>
 </html>

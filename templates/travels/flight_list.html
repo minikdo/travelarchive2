@@ -4,7 +4,7 @@
 
 <h1>Flight list</h1>
 
-<form action="{% url 'flight-index' %}" method="get">
+<form action="{% url 'travels:flight-index' %}" method="get">
   {{ form }}
   <input name="" type="submit" value="search"/>
 </form>
@@ -32,7 +32,7 @@
     <td>{{ flight.distance_in_km }} km</td>
     <td>{{ flight.duration }} hrs</td>
     <td>{{ flight.plane }}</td>
-    <td><a href="{% url 'flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
+    <td><a href="{% url 'travels:flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
   </tr>
   {% endfor %}
 </table>
