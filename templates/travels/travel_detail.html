@@ -56,7 +56,7 @@
 
 <tr>
   <td><a href="{% url 'travels:journey-update' journey.pk %}">{{ forloop.counter }}</a></td>
-  <td>{{ journey.start_date}}</td>
+  <td>{{ journey.start_date}} {{ journey.start_time|default_if_none:'' }}</td>
   <td>{{ journey.end_date|default_if_none:'' }}</td>
   <td>{{ journey.transport_type.name }}</td>
   <td>{{ journey.orig }}</td>

@@ -21,6 +21,13 @@ class Travel(models.Model):
 
     def get_absolute_url(self):
         return reverse('travels:travel-detail', kwargs={'pk': self.pk})
+
+    def clean(self):
+        delta = self.end_date - self.start_date
+        if self.start_date > self.end_date or\
+           delta.days > 60:
+            raise ValidationError({'start_date':
+                                   _('wrong dates')})
     
 
 class Place(models.Model):
@@ -57,6 +64,7 @@ class Journey(models.Model):
 
     travel = models.ForeignKey('Travel', on_delete=models.CASCADE)
     start_date = models.DateField()
+    start_time = models.TimeField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     orig = models.CharField(max_length=50)
     dest = models.CharField(max_length=50)

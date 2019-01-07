@@ -1,5 +1,3 @@
-# from django.shortcuts import render
-# from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
@@ -34,10 +32,15 @@ class TravelDetailView(TemplateView):
         travel = self.kwargs['pk']
         
         context['travel'] = Travel.objects.get(pk=travel)
-        context['places'] = Place.objects.filter(travel__pk=travel)
-        context['journeys'] = Journey.objects.filter(travel__pk=travel)
-        context['flights'] = Flight.objects.filter(travel__pk=travel)
-        
+        context['places'] = Place.objects\
+                                 .filter(travel__pk=travel)\
+                                 .prefetch_related('country')
+        context['journeys'] = Journey.objects\
+                                     .filter(travel__pk=travel)\
+                                     .prefetch_related('transport_type')
+        context['flights'] = Flight.objects\
+                                   .filter(travel__pk=travel)\
+                                   .prefetch_related('orig', 'dest')
         return context
 
 
@@ -152,7 +155,7 @@ class JourneyUpdate(UpdateView):
     model = Journey
     form_class = JourneyForm
     # fields = ['start_date', 'end_date', 'orig', 'dest',
-              # 'notes']
+    # 'notes']
 
 
 class JourneyDelete(DeleteView):
@@ -191,7 +194,7 @@ class AirportAutocomplete(Select2QuerySetView):
         qs = Airport.objects.all()
         
         if self.q:
-            qs = qs.filter(Q(city__istartswith=self.q)|\
+            qs = qs.filter(Q(city__istartswith=self.q) |
                            Q(iata__icontains=self.q))
             
         return qs
@@ -211,6 +214,8 @@ class FlightIndexView(FormMixin, ListView):
             query = query.filter(orig=self.orig)
         if self.dest:
             query = query.filter(dest=self.dest)
+
+        query = query.prefetch_related('orig', 'dest')
             
         return query.order_by('-date')
     

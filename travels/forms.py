@@ -81,12 +81,12 @@ class JourneyForm(forms.ModelForm):
                                                          'rows': 4,
                                                          'maxlength': 150}))
 
-    field_order = ['start_date', 'end_date', 'transport_type',
+    field_order = ['start_date', 'start_time', 'end_date', 'transport_type',
                    'orig', 'dest', 'notes']
     
     class Meta:
         model = Journey
-        fields = ['start_date', 'end_date', 'orig', 'dest',
+        fields = ['start_date', 'start_time', 'end_date', 'orig', 'dest',
                   'notes', 'transport_type']
 
 
