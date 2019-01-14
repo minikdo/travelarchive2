@@ -10,9 +10,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {% block extrahead %}{% endblock %}
+    
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
     <link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
+
   </head>
   <body>
 
@@ -24,8 +27,8 @@
         <div class="twelve columns">
           <ul>
 	    <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
-	    <li><a href="{% url 'travels:index' %}">Travels</a></li>
 	    <li><a href="{% url 'travels:flight-index' %}">Flights</a></li>
+	    <li><a href="{% url 'travels:index' %}">Travels</a></li>
           </ul>
         </div>
       </div>
@@ -41,5 +44,7 @@
     </div>    <!-- end container -->
 
     {% block footer %}{% endblock %}
+
+    <div style="top-margin:50px;">&nbsp;</div>
   </body>
 </html>
