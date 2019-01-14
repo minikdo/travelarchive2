@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h3>Confirm delete</h3>
+
+<form action="" method="post">
+  {% csrf_token %}
+  
+  <p>Are you sure to delete "<strong>{{ object }}</strong>"?</p>
+
+  <input type="submit" value="Confirm" />
+</form>
+
+{% endblock %}
