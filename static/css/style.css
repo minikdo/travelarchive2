@@ -66,3 +66,6 @@ table.flights tr td:nth-child(6) {
 .grey {
     color: grey;
 }
+#journey tr td:nth-child(8) {
+    width: 210px;
+}
