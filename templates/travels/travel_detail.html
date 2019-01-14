@@ -15,13 +15,13 @@
 <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
 
 
-<h4>Places</h4>
+<h4 id="plc">Places</h4>
 
 <a class="button button-primary" href="{% url 'travels:place-create' travel.pk %}">add place</a>
 
 {% if places %}
 
-<table>
+<table id="place">
   
   {% for place in places %}
 
@@ -44,13 +44,13 @@
 
 {% endif %} {# places #}
 
-<h4>Journeys</h4>
+<h4 id="jrn">Journeys</h4>
 
 <a class="button button-primary" href="{% url 'travels:journey-create' travel.pk %}">add journey</a>
 
 {% if journeys %}
 
-<table>
+<table id="journey">
   
 {% for journey in journeys %}
 
@@ -71,11 +71,13 @@
 
 {% endif %} {# journeys #}
 
+<a class="button button-primary" href="{% url 'travels:flight-create' travel.pk %}">add flight</a>
+
 {% if flights %}
 
 <h4>Flights</h4>
 
-<table>
+<table id="flight">
   
   {% for flight in flights %}
 
@@ -86,6 +88,10 @@
     <td>&rarr;</td>
     <td>{{ flight.dest.city }} ({{ flight.dest.iata }})</td>
     <td>{{ flight.distance_in_km }} km</td>
+    <td>
+      {% if flight.purchased %} {{ flight.currency.code }} {{ flight.price|floatformat:0 }}
+      <span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
+    </td>
     <td><span class="grey">{{ flight.note|default_if_none:'' }}</span></td>
   </tr>
 

@@ -8,7 +8,7 @@
 
 <table class="table table-striped">
   <tr>
-    <th>date</th><td>{{ flight.date }} ({{ flight.date|timesince }})</td>
+    <th>date</th><td>{{ flight.date }} <span class="grey">({{ flight.date|timesince }})</span></td>
     <th>flight no.</th><td>{{ flight.flight_number }}</td>
   </tr>
   <tr>
@@ -54,11 +54,20 @@
     <th>airplane</th><td>{{ flight.plane }}</td>
   </tr>
   <tr>
-    <th>notes</th><td colspan="3">{{ flight.note|default_if_none:'' }} <span class="grey">travel: {{ flight.travel.pk }}</span></td>
+    <th>price</th><td>{{ flight.currency.code }} {{ flight.price|floatformat:0|default_if_none:'' }}</td>
+    <th>purchased</th><td>
+      {% if flight.purchased %}{{ flight.purchased }} <span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
+    </td>
+  </tr>
+  <tr>
+    <th>notes</th><td colspan="3">{{ flight.note|default_if_none:'' }}</td>
   </tr>
 </table>
 
 <a class="button button-primary" href="{% url 'travels:flight-update' object.pk %}">edit flight</a>
+{% if flight.travel.pk != 0 %}
+<a class="button" href="{% url 'travels:travel-detail' flight.travel.pk %}">goto travel</a>
+{% endif %}
 
 {% endif %}
 {% endblock %}

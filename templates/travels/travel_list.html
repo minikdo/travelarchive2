@@ -12,8 +12,14 @@
   
 {% for item in object_list %}
 
+{% ifchanged %}
 <tr>
-  <td><a href="{% url 'travels:travel-detail' item.pk %}">#{{ forloop.revcounter }}</a></td>
+  <td colspan="4"><h4>{{ item.start_date|date:"Y" }}</h4></td>
+</tr>
+{% endifchanged %}
+
+<tr>
+  <td><a href="{% url 'travels:travel-detail' item.pk %}">{{ forloop.counter }}</a></td>
   <td>{{ item.start_date }} - {{ item.end_date }}</td>
   <td>
     {% for country in item.country.all %}
@@ -26,6 +32,8 @@
 {% endfor %}
 
 </table>
+
+{% include "travels/paginator.html" %}
 
 {% endif %} {# object_list #}
 

@@ -31,9 +31,16 @@
     {% endfor %}
     
     
-    <input name="" type="submit" value="save"/>
+    <input name="costam" type="submit" value="save" />
   </form>
   </div>
 </div>
+
+<hr/>
+
+{% if object %}
+<p>To delete this place press <a href="{% url 'travels:place-delete' object.pk %}">here</a>.</p>
+<p>To duplicate press <a href="{% url 'travels:place-duplicate' object.pk %}">here</a>.</p>
+{% endif %}
 
 {% endblock %}

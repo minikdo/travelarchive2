@@ -11,6 +11,7 @@
 
 {% if flight_list %}
 <table class="table table-striped flights">
+
   <tr class="warning">
     <th>date</th>
     <th>from</th>
@@ -22,6 +23,13 @@
     <th></th>
   </tr>
   {% for flight in flight_list %}
+
+  {% ifchanged %}
+  <tr>
+    <td colspan="8"><h4>{{ flight.date|date:"Y" }}</h4></td>
+  </tr>
+  {% endifchanged %}
+
   <tr>
     <td>{{ flight.date|date:"Y-m-d H:i" }}</td>
     <td title="{{ flight.orig.name }}">
