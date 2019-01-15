@@ -46,15 +46,15 @@
     <td></td>
   </tr>
   <tr>
-    <th>distance</th><td>{{ flight.distance_in_km }} km / {{ flight.distance }} mi</td>
-    <th>duration</th><td>{{ flight.duration }} hrs</td>
+    <th>distance</th><td>{{ flight.distance }} km</td>
+    <th>duration</th><td>{{ flight.duration|time:"H:i" }} hrs</td>
   </tr>
   <tr>
     <th>airline</th><td>{{ flight.airline }}</td>
     <th>airplane</th><td>{{ flight.plane }}</td>
   </tr>
   <tr>
-    <th>price</th><td>{{ flight.currency.code }} {{ flight.price|floatformat:0|default_if_none:'' }}</td>
+    <th>price</th><td>{{ flight.currency }} {{ flight.price|floatformat:0|default_if_none:'' }}</td>
     <th>purchased</th><td>
       {% if flight.purchased %}{{ flight.purchased }} <span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
     </td>

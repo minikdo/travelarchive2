@@ -4,6 +4,14 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
+CURRENCY_CHOICES = (
+    ('PLN', 'PLN Polish Złoty'),
+    ('USD', 'USD Dollar'),
+    ('EUR', 'EUR Euro'),
+    ('GBP', 'GBP British Pound')
+)
+
+
 class Travel(models.Model):
     """ main travels model """
 
@@ -98,35 +106,33 @@ class Flight(models.Model):
                              blank=True, null=True,
                              on_delete=models.SET_NULL)
     flight_number = models.CharField(max_length=20, blank=True, null=True)
-    airline = models.CharField(max_length=40, blank=True, null=True)
+    airline = models.ForeignKey('Airline', blank=True, null=True,
+                                on_delete=models.SET_NULL)
     distance = models.IntegerField(blank=True, null=True)
     duration = models.TimeField(blank=True, null=True)
     seat = models.CharField(max_length=6, blank=True, null=True)
     plane = models.CharField(max_length=40, blank=True, null=True)
     registration = models.CharField(max_length=10, blank=True, null=True)
-    note = models.CharField(max_length=100, blank=True, null=True)
-    airline_oid = models.CharField(max_length=10, blank=True, null=True)
+    note = models.TextField(max_length=200, blank=True, null=True)
+    price = models.FloatField(blank=True, null=True)
+    currency = models.CharField(max_length=3, blank=True, null=True,
+                                choices=CURRENCY_CHOICES)
+    purchased = models.DateField(blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('travels:flight-detail', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ['date']
-    
-    @property
-    def note_sign(self):
-        """ display * when there is a note """
-
-        if self.note:
-            return "*"
-        return ""
-    
-    @property
-    def distance_in_km(self):
-        """ convert miles to km """
         
-        return round(self.distance/0.62137)
-    
+    @property
+    def purchase_delta(self):
+        """ time difference between purchase and departure """
+
+        if self.purchased:
+            diff = self.date.date() - self.purchased
+            return diff.days
+
     def __str__(self):
         str = "{}, {} -> {}".format(self.date, self.orig, self.dest)
         return str
@@ -185,3 +191,18 @@ class Airport(models.Model):
         str = "{}, {}, {}, {}".format(self.country, self.city,
                                       self.name, self.iata)
         return str
+
+
+class Airline(models.Model):
+    """ list of airlines """
+
+    name = models.CharField(max_length=150)
+    alias = models.CharField(max_length=50, blank=True, null=True)
+    iata = models.CharField(max_length=3, blank=True, null=True)
+    icao = models.CharField(max_length=5, blank=True, null=True)
+    callsign = models.CharField(max_length=80, blank=True, null=True)
+    country = models.CharField(max_length=80, blank=True, null=True)
+    active = models.CharField(max_length=1, blank=True, null=True)
+
+    def __str__(self):
+        return "{} {}".format(self.name, self.country)

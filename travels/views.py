@@ -2,13 +2,14 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.db.models import Q
 
 from dal.autocomplete import Select2QuerySetView
 
-from .models import Travel, Place, Journey, Flight, Country, Airport
-from .forms import PlaceForm, TravelForm, JourneyForm, FlightSearchForm,\
-    FlightForm
+from .models import Travel, Place, Journey, Flight, Country, Airport, Airline
+from .forms import (PlaceForm, TravelForm, JourneyForm,
+                    FlightSearchForm, FlightForm)
 
 import datetime
 
@@ -16,7 +17,8 @@ import datetime
 class IndexView(ListView):
 
     model = Travel
-
+    paginate_by = 40
+    
     def get_queryset(self):
         qs = Travel.objects.all().prefetch_related('country')
         return qs
@@ -64,6 +66,9 @@ class PlaceCreate(CreateView):
     model = Place
     form_class = PlaceForm
 
+    def get_success_url(self):
+        return super().get_success_url()
+        
     def form_valid(self, form):
         form.instance.travel_id = self.kwargs.get('travel')
         return super().form_valid(form)
@@ -104,6 +109,35 @@ class PlaceUpdate(UpdateView):
         return kwargs
 
 
+class PlaceDelete(DeleteView):
+    """ delete a place """
+
+    model = Place
+
+    def get_success_url(self):
+        travel = self.object.travel
+        return reverse_lazy('travels:travel-detail',
+                            kwargs={'pk': travel.pk})
+
+
+def place_duplicate(request, pk):
+    """ duplicate a place """
+
+    if isinstance(pk, int):
+        obj = Place.objects.get(pk=pk)
+
+        last_date_obj = Place.objects\
+                             .filter(travel=obj.travel.pk)\
+                             .latest('end_date')
+
+        obj.pk = None
+        obj.start_date = last_date_obj.end_date
+        obj.end_date = last_date_obj.end_date
+        obj.save()
+
+    return redirect(obj)  # FIXME verify this
+    
+    
 class JourneyCreate(CreateView):
     """ add a journey """
 
@@ -129,6 +163,7 @@ class JourneyCreate(CreateView):
     def get_initial(self):
         country = Travel.objects.get(pk=self.kwargs.get('travel'))
         orig = ''
+        transport = ''
         
         try:
             queryset = Journey.objects\
@@ -143,9 +178,12 @@ class JourneyCreate(CreateView):
                 start_date = queryset.start_date
             if queryset.dest:
                 orig = queryset.dest
+            if queryset.transport_type:
+                transport = queryset.transport_type
                 
         return {'start_date': start_date,
                 'orig': orig,
+                'transport_type': transport,
                 'country': country}
 
 
@@ -154,8 +192,6 @@ class JourneyUpdate(UpdateView):
 
     model = Journey
     form_class = JourneyForm
-    # fields = ['start_date', 'end_date', 'orig', 'dest',
-    # 'notes']
 
 
 class JourneyDelete(DeleteView):
@@ -200,6 +236,18 @@ class AirportAutocomplete(Select2QuerySetView):
         return qs
 
 
+class AirlineAutocomplete(Select2QuerySetView):
+
+    def get_queryset(self):
+
+        qs = Airline.objects.all()
+        
+        if self.q:
+            qs = qs.filter(Q(name__istartswith=self.q))
+            
+        return qs
+
+
 class FlightIndexView(FormMixin, ListView):
     """ list of flights """
 
@@ -225,6 +273,22 @@ class FlightIndexView(FormMixin, ListView):
         self.dest = request.GET.get('dest', None)
         return super().dispatch(request, *args, **kwargs)
 
+
+class FlightCreate(CreateView):
+    """ create a flight """
+
+    model = Flight
+    form_class = FlightForm
+
+    def form_valid(self, form):  # FIXME repeated
+        form.instance.travel_id = self.kwargs.get('travel')
+        return super().form_valid(form)
+
+    # def get_form_kwargs(self):
+        # kwargs = super().get_form_kwargs()
+        # kwargs.update(session_data={'travel': self.kwargs.get('travel')})
+        # return kwargs
+    
 
 class FlightUpdate(UpdateView):
     """ update a flight """

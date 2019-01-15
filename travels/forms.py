@@ -45,15 +45,17 @@ class PlaceForm(forms.ModelForm):
 
 class TravelForm(forms.ModelForm):
 
-    # from django.contrib.admin import widgets
-    # start_date = forms.DateField(widget=widgets.AdminDateWidget(),
-                                 # localize=True)
-    start_date = forms.DateField(initial=date.today(),
-                                 widget=forms.DateInput(format='%Y-%m-%d'),
-                                 input_formats=['%Y-%m-%d'])
-    end_date = forms.DateField(initial=date.today(),
-                               widget=forms.DateInput(format='%Y-%m-%d'),
-                               input_formats=['%Y-%m-%d'])
+    from django.contrib.admin import widgets
+    start_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                                 localize=False)
+    end_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                               localize=False)
+    # start_date = forms.DateField(initial=date.today(),
+                                 # widget=forms.DateInput(format='%Y-%m-%d'),
+                                 # input_formats=['%Y-%m-%d'])
+    # end_date = forms.DateField(initial=date.today(),
+                               # widget=forms.DateInput(format='%Y-%m-%d'),
+                               # input_formats=['%Y-%m-%d'])
     
     class Meta:
         model = Travel
@@ -63,6 +65,11 @@ class TravelForm(forms.ModelForm):
             attrs={'class': 'form-control'})
         }
 
+    class Media:
+        js = ('admin/js/vendor/jquery/jquery.js',
+              'admin/js/core.js')
+        css = {'all': ('admin/css/forms.css',)}
+        
 
 class JourneyForm(forms.ModelForm):
 
@@ -92,16 +99,29 @@ class JourneyForm(forms.ModelForm):
 
 class FlightForm(forms.ModelForm):
 
+    date = forms.DateTimeField(
+        widget=forms.DateTimeInput(format='%Y-%m-%d %H:%M',
+                                   attrs={'autofocus': True}),
+        input_formats=['%Y-%m-%d %H:%M'])
+    purchased = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d'),
+        input_formats=['%Y-%m-%d'],
+        required=False)
+
+    field_order = ['travel', 'date', 'orig', 'dest', 'airline',
+                   'flight_number', 'plane', 'registration',
+                   'seat', 'distance', 'duration', 'currency',
+                   'price', 'purchased', 'note']
+    
     class Meta:
         model = Flight
         fields = '__all__'
-        widgets = {'orig': ModelSelect2(
-            url='travels:airport-autocomplete',
-            attrs={'class': 'form-control'}),
-                   'dest': ModelSelect2(
-                       url='travels:airport-autocomplete',
-                       attrs={'class': 'form-control'})
-        }
+        widgets = {'orig': ModelSelect2(url='travels:airport-autocomplete',
+                                        attrs={'class': 'form-control'}),
+                   'dest': ModelSelect2(url='travels:airport-autocomplete',
+                                        attrs={'class': 'form-control'}),
+                   'airline': ModelSelect2(url='travels:airline-autocomplete',
+                                           attrs={'class': 'form-control'})}
         
 
 class FlightSearchForm(forms.Form):
