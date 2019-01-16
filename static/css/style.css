@@ -69,3 +69,8 @@ table.flights tr td:nth-child(6) {
 #journey tr td:nth-child(8) {
     width: 210px;
 }
+.ico {
+    width:13px;
+    height:13px;
+    vertical-align: middle;
+}

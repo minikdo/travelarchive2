@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
@@ -46,21 +47,21 @@ class TravelDetailView(TemplateView):
         return context
 
 
-class TravelCreate(CreateView):
+class TravelCreate(LoginRequiredMixin, CreateView):
     """ add a travel """
 
     model = Travel
     form_class = TravelForm
 
     
-class TravelUpdate(UpdateView):
+class TravelUpdate(LoginRequiredMixin, UpdateView):
     """ edit travel """
 
     model = Travel
     form_class = TravelForm
     
 
-class PlaceCreate(CreateView):
+class PlaceCreate(LoginRequiredMixin, CreateView):
     """ add a place """
 
     model = Place
@@ -96,7 +97,7 @@ class PlaceCreate(CreateView):
                 'country': country}
     
 
-class PlaceUpdate(UpdateView):
+class PlaceUpdate(LoginRequiredMixin, UpdateView):
     """ edit place """
 
     model = Place
@@ -109,7 +110,7 @@ class PlaceUpdate(UpdateView):
         return kwargs
 
 
-class PlaceDelete(DeleteView):
+class PlaceDelete(LoginRequiredMixin, DeleteView):
     """ delete a place """
 
     model = Place
@@ -138,7 +139,7 @@ def place_duplicate(request, pk):
     return redirect(obj)  # FIXME verify this
     
     
-class JourneyCreate(CreateView):
+class JourneyCreate(LoginRequiredMixin, CreateView):
     """ add a journey """
 
     model = Journey
@@ -187,14 +188,14 @@ class JourneyCreate(CreateView):
                 'country': country}
 
 
-class JourneyUpdate(UpdateView):
+class JourneyUpdate(LoginRequiredMixin, UpdateView):
     """ edit journey """
 
     model = Journey
     form_class = JourneyForm
 
 
-class JourneyDelete(DeleteView):
+class JourneyDelete(LoginRequiredMixin, DeleteView):
     """ delete a journey """
 
     model = Journey
@@ -274,7 +275,7 @@ class FlightIndexView(FormMixin, ListView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class FlightCreate(CreateView):
+class FlightCreate(LoginRequiredMixin, CreateView):
     """ create a flight """
 
     model = Flight
@@ -290,7 +291,7 @@ class FlightCreate(CreateView):
         # return kwargs
     
 
-class FlightUpdate(UpdateView):
+class FlightUpdate(LoginRequiredMixin, UpdateView):
     """ update a flight """
 
     model = Flight

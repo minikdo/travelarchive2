@@ -143,9 +143,9 @@ USE_THOUSAND_SEPARATOR = True
 STATIC_URL = '/static/'
 
 # Auth
-# LOGIN_REDIRECT_URL = '/inventory/'
-# LOGIN_URL = '/accounts/login/'
-# LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 # Admin settings
 ADMIN_EMAIL = get_secret('ADMIN_EMAIL')

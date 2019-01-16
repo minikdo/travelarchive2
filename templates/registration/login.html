@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Authentication{% endblock %}
+
+{% block body %}
+
+{% if not user.is_authenticated %}
+
+<h3>Login</h3>
+
+<form method='post' action="{% url 'travels:login' %}">
+
+  {% csrf_token %}
+
+  {{ form.username.label_tag }}
+  {{ form.username }}
+  {{ form.password.label_tag }}
+  {{ form.password }}
+
+  {% if next %}
+  <input type="hidden" name="next" value="{{ next }}" />
+  {% endif %}
+
+  {{ form.errors }}
+  
+  <div><input type="submit" value="Log In"/></div>
+</form>
+
+{% else %}
+
+<h4>You are logged in</h4>
+
+{% endif %}
+
+{% endblock %}

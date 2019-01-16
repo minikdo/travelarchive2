@@ -1,5 +1,5 @@
 from django.urls import path
-# from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView
 
 from . import views
 
@@ -48,4 +48,8 @@ urlpatterns = [
          name='airport-autocomplete'),
     path('airline-autocomplete', views.AirlineAutocomplete.as_view(),
          name='airline-autocomplete'),
+
+    # login
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]

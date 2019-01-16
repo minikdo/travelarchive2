@@ -11,13 +11,17 @@
 </h2>
 {{ travel.start_date }} &mdash; {{ travel.end_date}}
 <span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
+{% if user.is_authenticated %}
 <a href="{% url 'travels:travel-update' travel.pk %}">Edit</a>
+{% endif %}
 <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
 
 
 <h4 id="plc">Places</h4>
 
+{% if user.is_authenticated %}
 <a class="button button-primary" href="{% url 'travels:place-create' travel.pk %}">add place</a>
+{% endif %}
 
 {% if places %}
 
@@ -26,7 +30,13 @@
   {% for place in places %}
 
   <tr>
-    <td><a href="{% url 'travels:place-update' place.pk %}">{{ forloop.counter }}</a></td>
+    <td>
+      {% if user.is_authenticated %}
+      <a href="{% url 'travels:place-update' place.pk %}">{{ forloop.counter }}</a>
+      {% else %}
+      {{ forloop.counter }}
+      {% endif %}
+    </td>
     <td>{{ place.start_date }}</td>
     <td>&mdash;</td>
     <td>{{ place.end_date }}</td>
@@ -46,7 +56,9 @@
 
 <h4 id="jrn">Journeys</h4>
 
+{% if user.is_authenticated %}
 <a class="button button-primary" href="{% url 'travels:journey-create' travel.pk %}">add journey</a>
+{% endif %}
 
 {% if journeys %}
 
@@ -55,7 +67,13 @@
 {% for journey in journeys %}
 
 <tr>
-  <td><a href="{% url 'travels:journey-update' journey.pk %}">{{ forloop.counter }}</a></td>
+  <td>
+    {% if user.is_authenticated %}
+    <a href="{% url 'travels:journey-update' journey.pk %}">{{ forloop.counter }}</a>
+    {% else %}
+    {{ forloop.counter }}
+    {% endif %}
+  </td>
   <td>{{ journey.start_date}} <span class="grey">{{ journey.start_time|default_if_none:'' }}</span></td>
   <td>{{ journey.end_date|default_if_none:'' }}</td>
   <td>{{ journey.transport_type.name }}</td>
@@ -71,7 +89,9 @@
 
 {% endif %} {# journeys #}
 
+{% if user.is_authenticated %}
 <a class="button button-primary" href="{% url 'travels:flight-create' travel.pk %}">add flight</a>
+{% endif %}
 
 {% if flights %}
 

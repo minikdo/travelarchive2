@@ -64,7 +64,10 @@
   </tr>
 </table>
 
+{% if user.is_authenticated %}
 <a class="button button-primary" href="{% url 'travels:flight-update' object.pk %}">edit flight</a>
+{% endif %}
+
 {% if flight.travel.pk != 0 %}
 <a class="button" href="{% url 'travels:travel-detail' flight.travel.pk %}">goto travel</a>
 {% endif %}

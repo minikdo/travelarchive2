@@ -4,7 +4,9 @@
 
 <h1>Travels</h1>
 
+{% if user.is_authenticated %}
 <a class="button button-primary" href="{% url 'travels:travel-create' %}">add travel</a>
+{% endif %}
 
 {% if object_list %}
 
