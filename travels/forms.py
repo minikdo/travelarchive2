@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.admin import widgets
 
 from dal.autocomplete import ModelSelect2Multiple, ModelSelect2
-# from datetime import date
 
 from .models import Place, Country, Travel, Journey, Airport,\
     Flight
@@ -29,13 +28,6 @@ class PlaceForm(forms.ModelForm):
                                  localize=False)
     end_date = forms.DateField(widget=widgets.AdminDateWidget(),
                                localize=False)
-    # start_date = forms.DateField(
-        # widget=forms.DateInput(format='%Y-%m-%d',
-                               # attrs={'autofocus': True}),
-        # input_formats=['%Y-%m-%d'])
-    # end_date = forms.DateField(initial="",
-                               # widget=forms.DateInput(format='%Y-%m-%d'),
-                               # input_formats=['%Y-%m-%d'])
     country = forms.ModelChoiceField(Country.objects.all(), empty_label=None)
     notes = forms.CharField(required=False,
                             widget=forms.Textarea(attrs={'cols': 35,
@@ -86,6 +78,9 @@ class JourneyForm(forms.ModelForm):
     end_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
                                input_formats=['%Y-%m-%d'],
                                required=False)
+    start_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'),
+                           input_formats=['%H:%M'],
+                           required=False)
     notes = forms.CharField(required=False,
                             widget=forms.Textarea(attrs={'cols': 35,
                                                          'rows': 4,
@@ -102,18 +97,15 @@ class JourneyForm(forms.ModelForm):
 
 class FlightForm(forms.ModelForm):
 
-    purchased = forms.DateField(widget=widgets.AdminDateWidget(),
-                           localize=False)
-    # date = forms.DateTimeField(
-        # widget=forms.DateTimeInput(format='%Y-%m-%d %H:%M',
-                                   # attrs={'autofocus': True}),
-        # input_formats=['%Y-%m-%d %H:%M'])
     purchased = forms.DateField(
-        widget=forms.DateInput(format='%Y-%m-%d'),
-        input_formats=['%Y-%m-%d'],
-        required=False)
+        widget=widgets.AdminDateWidget(), localize=False)
+    date = forms.DateField(
+        widget=widgets.AdminDateWidget(), localize=False)
+    time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'),
+                           input_formats=['%H:%M'],
+                           required=False)
 
-    field_order = ['travel', 'date', 'orig', 'dest', 'airline',
+    field_order = ['travel', 'date', 'time', 'orig', 'dest', 'airline',
                    'flight_number', 'plane', 'registration',
                    'seat', 'distance', 'duration', 'currency',
                    'price', 'purchased', 'note']

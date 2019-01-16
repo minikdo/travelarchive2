@@ -263,7 +263,7 @@ class FlightIndexView(FormMixin, ListView):
         if self.dest:
             query = query.filter(dest=self.dest)
 
-        query = query.prefetch_related('orig', 'dest')
+        query = query.prefetch_related('orig', 'dest', 'airline')
             
         return query.order_by('-date')
     

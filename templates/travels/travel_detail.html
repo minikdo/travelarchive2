@@ -56,7 +56,7 @@
 
 <tr>
   <td><a href="{% url 'travels:journey-update' journey.pk %}">{{ forloop.counter }}</a></td>
-  <td>{{ journey.start_date}} {{ journey.start_time|default_if_none:'' }}</td>
+  <td>{{ journey.start_date}} <span class="grey">{{ journey.start_time|default_if_none:'' }}</span></td>
   <td>{{ journey.end_date|default_if_none:'' }}</td>
   <td>{{ journey.transport_type.name }}</td>
   <td>{{ journey.orig }}</td>
@@ -83,13 +83,13 @@
 
   <tr>
     <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
-    <td>{{ flight.date }}</td>
+    <td>{{ flight.date }} <span class="grey">{{ flight.time|default_if_none:'' }}</span></td>
     <td>{{ flight.orig.city }} ({{ flight.orig.iata }})</td>
     <td>&rarr;</td>
     <td>{{ flight.dest.city }} ({{ flight.dest.iata }})</td>
-    <td>{{ flight.distance_in_km }} km</td>
+    <td>{{ flight.distance }} km</td>
     <td>
-      {% if flight.purchased %} {{ flight.currency.code }} {{ flight.price|floatformat:0 }}
+      {% if flight.purchased %} {{ flight.currency }} {{ flight.price|floatformat:0 }}
       <span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
     </td>
     <td><span class="grey">{{ flight.note|default_if_none:'' }}</span></td>

@@ -131,7 +131,7 @@ class Flight(models.Model):
         """ time difference between purchase and departure """
 
         if self.purchased:
-            diff = self.date.date() - self.purchased
+            diff = self.date - self.purchased
             return diff.days
 
     def __str__(self):
