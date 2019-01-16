@@ -2,6 +2,9 @@
 
 {% load static %}
 
+{% block extrahead %}
+{% endblock %}
+
 {% block body %}
 
 <h1>Flight</h1>
@@ -42,7 +45,15 @@
 {% endblock %}
 
 {% block footer %}
-<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script> -->
+
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
 
 {{ form.media }}
+
+<link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
+<link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
+
 {% endblock %}
+

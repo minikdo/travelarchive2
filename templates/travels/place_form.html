@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %}
+{% endblock %}
 
 {% block body %}
 
@@ -42,5 +46,16 @@
 <p>To delete this place press <a href="{% url 'travels:place-delete' object.pk %}">here</a>.</p>
 <p>To duplicate press <a href="{% url 'travels:place-duplicate' object.pk %}">here</a>.</p>
 {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+
+{{ form.media }}
+
+<link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
+<link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
 
 {% endblock %}

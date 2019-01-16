@@ -96,7 +96,8 @@ class Flight(models.Model):
     """ flights """
 
     travel = models.ForeignKey('Travel', null=True, on_delete=models.SET_NULL)
-    date = models.DateTimeField()
+    date = models.DateField(blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
     orig = models.ForeignKey('Airport',
                              related_name='orig',
                              blank=True, null=True,

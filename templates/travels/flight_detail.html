@@ -8,7 +8,7 @@
 
 <table class="table table-striped">
   <tr>
-    <th>date</th><td>{{ flight.date }} <span class="grey">({{ flight.date|timesince }})</span></td>
+    <th>date</th><td><strong>{{ flight.date }}</strong> {{ flight.time }} <span class="grey">({{ flight.date|timesince }} ago)</span></td>
     <th>flight no.</th><td>{{ flight.flight_number }}</td>
   </tr>
   <tr>
