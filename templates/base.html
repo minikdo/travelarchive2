@@ -29,12 +29,14 @@
             {% if user.is_authenticated %}
             <li>
               <strong>{{ user.username }}</strong>
-              <a href="{% url 'travels:logout' %}" title="wyloguj się">
+              <a href="{% url 'travels:logout' %}" title="log out">
                 <img class="ico" alt="logout" src="{% static 'account-logout.svg' %}"/>
               </a>
             </li>
-            {% endif %}
 	    <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
+            {% else %}
+            <li><a href="{% url 'travels:login' %}" title="log in">Login</li>
+            {% endif %}
 	    <li><a href="{% url 'travels:flight-index' %}">Flights</a></li>
 	    <li><a href="{% url 'travels:index' %}">Travels</a></li>
           </ul>

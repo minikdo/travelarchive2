@@ -89,7 +89,8 @@ class Journey(models.Model):
         return str
 
     def get_absolute_url(self):
-        return reverse('travels:travel-detail', kwargs={'pk': self.travel.pk})
+        return reverse('travels:travel-detail',
+                       kwargs={'pk': self.travel.pk}) + '#jrn'
 
 
 class Flight(models.Model):
@@ -108,6 +109,7 @@ class Flight(models.Model):
                              on_delete=models.SET_NULL)
     flight_number = models.CharField(max_length=20, blank=True, null=True)
     airline = models.ForeignKey('Airline', blank=True, null=True,
+                                related_name='airline',
                                 on_delete=models.SET_NULL)
     distance = models.IntegerField(blank=True, null=True)
     duration = models.TimeField(blank=True, null=True)
@@ -121,7 +123,8 @@ class Flight(models.Model):
     purchased = models.DateField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse('travels:flight-detail', kwargs={'pk': self.pk})
+        return reverse('travels:flight-detail',
+                       kwargs={'pk': self.pk}) + '#fl'
 
     class Meta:
         ordering = ['date']

@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extrahead %}
-{% endblock %}
-
 {% block body %}
 
 <h1>Place</h1>
@@ -54,8 +51,12 @@
 
 {{ form.media }}
 
-<link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
-<link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
-<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
+<style>
+  label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #db5000;
+  }
+</style>
 
 {% endblock %}

@@ -40,6 +40,8 @@ urlpatterns = [
          name='flight-create'),
     path('flights/<int:pk>/update/', views.FlightUpdate.as_view(),
          name='flight-update'),
+    path('flight/<int:pk>/delete/', views.FlightDelete.as_view(),
+         name='flight-delete'),
 
     # autocomplete
     path('country-autocomplete', views.CountryAutocomplete.as_view(),

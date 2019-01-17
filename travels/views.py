@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q
 
 from dal.autocomplete import Select2QuerySetView
@@ -34,7 +34,7 @@ class TravelDetailView(TemplateView):
 
         travel = self.kwargs['pk']
         
-        context['travel'] = Travel.objects.get(pk=travel)
+        context['travel'] = get_object_or_404(Travel, pk=travel)
         context['places'] = Place.objects\
                                  .filter(travel__pk=travel)\
                                  .prefetch_related('country')
@@ -212,6 +212,93 @@ class FlightDetailView(DetailView):
     model = Flight
 
 
+class FlightIndexView(FormMixin, ListView):
+    """ list of flights """
+
+    model = Flight
+    form_class = FlightSearchForm
+    paginate_by = 50
+
+    def get_queryset(self):
+        query = Flight.objects.all()
+
+        if self.orig:
+            query = query.filter(orig=self.orig)
+        if self.dest:
+            query = query.filter(dest=self.dest)
+        if self.airline:
+            query = query.filter(airline=self.airline)
+
+        query = query.prefetch_related('orig', 'dest', 'airline')
+            
+        return query.order_by('-date', '-time')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # import pdb; pdb.set_trace()
+        context['count'] = self.object_list.count()
+        return context
+
+    def get_initial(self):
+        initials = {}
+
+        if self.orig:
+            initials['orig'] = self.orig
+        if self.dest:
+            initials['dest'] = self.dest
+        if self.airline:
+            initials['airline'] = self.airline
+            
+        return initials
+         
+    def dispatch(self, request, *args, **kwargs):
+    
+        self.orig = request.GET.get('orig', None)
+        self.dest = request.GET.get('dest', None)
+        self.airline = request.GET.get('airline', None)
+        return super().dispatch(request, *args, **kwargs)
+
+
+class FlightCreate(LoginRequiredMixin, CreateView):
+    """ create a flight """
+
+    model = Flight
+    form_class = FlightForm
+
+    def form_valid(self, form):  # FIXME repeated
+        form.instance.travel_id = self.kwargs.get('travel')
+        return super().form_valid(form)
+
+    def get_initial(self):
+        # import pdb; pdb.set_trace()
+        
+        return {'travel': self.kwargs.get('travel')}
+        # return ''
+        
+    # def get_form_kwargs(self):
+        # kwargs = super().get_form_kwargs()
+        # kwargs.update(session_data={'travel': self.kwargs.get('travel')})
+        # return kwargs
+    
+
+class FlightUpdate(LoginRequiredMixin, UpdateView):
+    """ update a flight """
+
+    model = Flight
+    form_class = FlightForm
+
+
+class FlightDelete(LoginRequiredMixin, DeleteView):
+    """ delete a flight """
+
+    model = Flight
+
+    def get_success_url(self):
+        travel = self.object.travel
+        return reverse_lazy('travels:travel-detail',
+                            kwargs={'pk': travel.pk})
+
+
 class CountryAutocomplete(Select2QuerySetView):
     
     def get_queryset(self):
@@ -247,52 +334,3 @@ class AirlineAutocomplete(Select2QuerySetView):
             qs = qs.filter(Q(name__istartswith=self.q))
             
         return qs
-
-
-class FlightIndexView(FormMixin, ListView):
-    """ list of flights """
-
-    model = Flight
-    form_class = FlightSearchForm
-    paginate_by = 50
-
-    def get_queryset(self):
-        query = Flight.objects.all()
-
-        if self.orig:
-            query = query.filter(orig=self.orig)
-        if self.dest:
-            query = query.filter(dest=self.dest)
-
-        query = query.prefetch_related('orig', 'dest', 'airline')
-            
-        return query.order_by('-date')
-    
-    def dispatch(self, request, *args, **kwargs):
-    
-        self.orig = request.GET.get('orig', None)
-        self.dest = request.GET.get('dest', None)
-        return super().dispatch(request, *args, **kwargs)
-
-
-class FlightCreate(LoginRequiredMixin, CreateView):
-    """ create a flight """
-
-    model = Flight
-    form_class = FlightForm
-
-    def form_valid(self, form):  # FIXME repeated
-        form.instance.travel_id = self.kwargs.get('travel')
-        return super().form_valid(form)
-
-    # def get_form_kwargs(self):
-        # kwargs = super().get_form_kwargs()
-        # kwargs.update(session_data={'travel': self.kwargs.get('travel')})
-        # return kwargs
-    
-
-class FlightUpdate(LoginRequiredMixin, UpdateView):
-    """ update a flight """
-
-    model = Flight
-    form_class = FlightForm

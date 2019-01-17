@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block body %}
 
 <h1>Journey</h1>
@@ -55,5 +57,20 @@
 {% if object %}
 <a class="button" href="{% url 'travels:journey-delete' object.pk %}">delete this journey</a>
 {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+
+{{ form.media }}
+
+<style>
+  label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #db5000;
+  }
+</style>
 
 {% endblock %}

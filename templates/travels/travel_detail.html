@@ -16,11 +16,12 @@
 {% endif %}
 <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
 
+<!-- PLACES -->
 
 <h4 id="plc">Places</h4>
 
 {% if user.is_authenticated %}
-<a class="button button-primary" href="{% url 'travels:place-create' travel.pk %}">add place</a>
+<div><a class="button button-primary" href="{% url 'travels:place-create' travel.pk %}">add place</a></div>
 {% endif %}
 
 {% if places %}
@@ -54,10 +55,12 @@
 
 {% endif %} {# places #}
 
+<!-- JOURNEYS -->
+
 <h4 id="jrn">Journeys</h4>
 
 {% if user.is_authenticated %}
-<a class="button button-primary" href="{% url 'travels:journey-create' travel.pk %}">add journey</a>
+<div><a class="button button-primary" href="{% url 'travels:journey-create' travel.pk %}">add journey</a></div>
 {% endif %}
 
 {% if journeys %}
@@ -89,13 +92,15 @@
 
 {% endif %} {# journeys #}
 
+<!-- FLIGHTS -->
+
+<h4 id="fl">Flights</h4>
+
 {% if user.is_authenticated %}
-<a class="button button-primary" href="{% url 'travels:flight-create' travel.pk %}">add flight</a>
+<div><a class="button button-primary" href="{% url 'travels:flight-create' travel.pk %}">add flight</a></div>
 {% endif %}
 
 {% if flights %}
-
-<h4>Flights</h4>
 
 <table id="flight">
   

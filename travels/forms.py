@@ -4,7 +4,7 @@ from django.contrib.admin import widgets
 from dal.autocomplete import ModelSelect2Multiple, ModelSelect2
 
 from .models import Place, Country, Travel, Journey, Airport,\
-    Flight
+    Flight, Airline
 
 
 class PlaceForm(forms.ModelForm):
@@ -71,16 +71,21 @@ class JourneyForm(forms.ModelForm):
     # def __init__(self, *args, session_data=None, **kwargs):
         # super().__init__(*args, **kwargs)
     
-    start_date = forms.DateField(
-        widget=forms.DateInput(format='%Y-%m-%d',
-                               attrs={'autofocus': True}),
-        input_formats=['%Y-%m-%d'])
-    end_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
-                               input_formats=['%Y-%m-%d'],
+    start_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                                 localize=False)
+    end_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                               localize=False,
                                required=False)
+    # start_date = forms.DateField(
+        # widget=forms.DateInput(format='%Y-%m-%d',
+                               # attrs={'autofocus': True}),
+        # input_formats=['%Y-%m-%d'])
+    # end_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
+                               # input_formats=['%Y-%m-%d'],
+                               # required=False)
     start_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'),
-                           input_formats=['%H:%M'],
-                           required=False)
+                                 input_formats=['%H:%M'],
+                                 required=False)
     notes = forms.CharField(required=False,
                             widget=forms.Textarea(attrs={'cols': 35,
                                                          'rows': 4,
@@ -94,11 +99,16 @@ class JourneyForm(forms.ModelForm):
         fields = ['start_date', 'start_time', 'end_date', 'orig', 'dest',
                   'notes', 'transport_type']
 
+    class Media:
+        js = ('admin/js/vendor/jquery/jquery.js',
+              'admin/js/core.js')
+        css = {'all': ('admin/css/forms.css',)}
+
 
 class FlightForm(forms.ModelForm):
 
     purchased = forms.DateField(
-        widget=widgets.AdminDateWidget(), localize=False)
+        widget=widgets.AdminDateWidget(), localize=False, required=False)
     date = forms.DateField(
         widget=widgets.AdminDateWidget(), localize=False)
     time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'),
@@ -136,4 +146,8 @@ class FlightSearchForm(forms.Form):
     dest = forms.ModelChoiceField(
         queryset=Airport.objects.exclude(dest=None).order_by('city'),
         label="to",
+        required=False)
+    airline = forms.ModelChoiceField(
+        queryset=Airline.objects.exclude(airline=None).order_by('name'),
+        label="airline",
         required=False)

@@ -4,10 +4,29 @@
 
 <h1>Flight list</h1>
 
-<form action="{% url 'travels:flight-index' %}" method="get">
-  {{ form }}
-  <input name="" type="submit" value="search"/>
-</form>
+<div class="row">
+  <div class="six columns">
+    <form action="{% url 'travels:flight-index' %}" method="get">
+
+      {% csrf_token %}
+      
+      {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+      {% endfor %}
+
+      {% for field in form.visible_fields %}
+      
+      {{ field.errors }}
+      {{ field.label_tag }} {{ field }}
+
+      {% endfor %}
+    
+      <input name="" type="submit" value="search"/>
+    </form>
+  </div>
+</div>
+
+{% if count %}<hr/><h3>Number of flights: {{ count }}</h3>{% endif %}
 
 {% if flight_list %}
 <table class="table table-striped flights">
@@ -31,7 +50,7 @@
   {% endifchanged %}
 
   <tr>
-    <td>{{ flight.date|date:"Y-m-d" }}</br>{{ flight.time }}</td>
+    <td>{{ flight.date|date:"Y-m-d" }}</br><span class="grey">{{ flight.time|default_if_none:'&nbsp;' }}</span></td>
     <td title="{{ flight.orig.name }}">
       <strong>{{ flight.orig.iata }}</strong><br/>{{ flight.orig.city }}</td>
     <td title="{{ flight.dest.name }}">

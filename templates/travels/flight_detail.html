@@ -69,7 +69,12 @@
 {% endif %}
 
 {% if flight.travel.pk != 0 %}
-<a class="button" href="{% url 'travels:travel-detail' flight.travel.pk %}">goto travel</a>
+<a class="button" href="{% url 'travels:travel-detail' flight.travel.pk %}#fl">goto travel {{ flight.travel.pk }}</a>
+{% endif %}
+
+{% if user.is_authenticated %}
+<p></p>
+<p>if you want to delete this flight <a href="{% url 'travels:flight-delete' object.pk %}">here</a></p>
 {% endif %}
 
 {% endif %}

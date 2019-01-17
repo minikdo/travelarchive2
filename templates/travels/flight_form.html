@@ -2,9 +2,6 @@
 
 {% load static %}
 
-{% block extrahead %}
-{% endblock %}
-
 {% block body %}
 
 <h1>Flight</h1>
@@ -51,9 +48,20 @@
 
 {{ form.media }}
 
-<link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" /> 
-<link rel="stylesheet" href="{% static 'css/skeleton.css' %}" type="text/css" /> 
-<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> 
+<style>
+  label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #db5000;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #0091b5;
+  }
+  .select2-container .select2-selection--single {
+  margin-bottom: 1.5rem;
+  }
+  
+</style>
 
 {% endblock %}
 
