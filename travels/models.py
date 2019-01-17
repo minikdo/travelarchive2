@@ -27,6 +27,11 @@ class Travel(models.Model):
         str = "#{} {} -> {}".format(self.pk, self.start_date, self.end_date)
         return str
 
+    @property
+    def time_delta(self):
+        delta = self.end_date - self.start_date
+        return delta.days
+
     def get_absolute_url(self):
         return reverse('travels:travel-detail', kwargs={'pk': self.pk})
 

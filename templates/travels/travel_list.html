@@ -2,6 +2,12 @@
 
 {% block body %}
 
+<style>
+  td:nth-child(3) {
+  text-align: right;
+  }
+</style>
+
 <h1>Travels</h1>
 
 {% if user.is_authenticated %}
@@ -16,13 +22,14 @@
 
 {% ifchanged %}
 <tr>
-  <td colspan="4"><h4>{{ item.start_date|date:"Y" }}</h4></td>
+  <td colspan="5"><h4>{{ item.start_date|date:"Y" }}</h4></td>
 </tr>
 {% endifchanged %}
 
 <tr>
   <td><a href="{% url 'travels:travel-detail' item.pk %}">{{ forloop.counter }}</a></td>
   <td>{{ item.start_date }} - {{ item.end_date }}</td>
+  <td><span class="grey" title="days">{{ item.time_delta }}</span></td>
   <td>
     {% for country in item.country.all %}
     {{ country }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
