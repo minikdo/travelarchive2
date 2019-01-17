@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
     FormMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
-from django.db.models import Q
+from django.db.models import Q, Count
 
 from dal.autocomplete import Select2QuerySetView
 
@@ -16,15 +16,42 @@ import datetime
 
 
 class IndexView(ListView):
-
+    """ list of travels """
+    
     model = Travel
     paginate_by = 40
     
     def get_queryset(self):
         qs = Travel.objects.all().prefetch_related('country')
+
+        if self.request.method == 'GET':
+            country = self.request.GET.get('country', None)
+            try:
+                country = int(country)
+            except Exception:  # FIXME
+                pass
+            else:
+                qs = qs.filter(country=country)
+        
         return qs
     
     
+class CountryView(TemplateView):
+    """ country statistics """
+
+    template_name = 'travels/country.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['countries'] = Country.objects.filter(
+            countries__in=Travel.objects.all()).annotate(
+                Count('countries')).order_by('continent_name',
+                                             'country_name')
+
+        return context
+    
+
 class TravelDetailView(TemplateView):
 
     template_name = 'travels/travel_detail.html'

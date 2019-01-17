@@ -9,6 +9,7 @@ urlpatterns = [
 
     # travel
     path('', views.IndexView.as_view(), name='index'),
+    path('country/', views.CountryView.as_view(), name='country'),
     path('<int:pk>/', views.TravelDetailView.as_view(), name='travel-detail'),
     path('add/', views.TravelCreate.as_view(), name='travel-create'),
     path('<int:pk>/update/', views.TravelUpdate.as_view(),

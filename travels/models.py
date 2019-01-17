@@ -15,7 +15,7 @@ CURRENCY_CHOICES = (
 class Travel(models.Model):
     """ main travels model """
 
-    country = models.ManyToManyField('Country')
+    country = models.ManyToManyField('Country', related_name='countries')
     start_date = models.DateField()
     end_date = models.DateField()
     notes = models.CharField(max_length=50, blank=True, null=True)

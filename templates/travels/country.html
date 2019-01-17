@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Travels</h1>
+
+<style>
+  li { display: inline; white-space: nowrap;}
+  h4 { margin-top: 20px }
+</style>
+
+{% if countries %}
+<ul>
+  {% for country in countries %}
+  
+  {% ifchanged %}
+  <h4>{{ country.continent_name }}</h4>
+  {% endifchanged %}
+  
+  <li>{{ country.country_name }} <a href="{% url 'travels:index' %}?country={{country.pk}}">{{ country.countries__count }}</a></li>
+  
+  {% endfor %}
+</ul>
+{% endif %}{# countries #}
+
+
+{% endblock %}
