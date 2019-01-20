@@ -48,7 +48,7 @@ class CountryView(TemplateView):
             countries__in=Travel.objects.all()).annotate(
                 Count('countries')).order_by('continent_name',
                                              'country_name')
-
+        context['total'] = context['countries'].count()
         return context
     
 
@@ -233,12 +233,6 @@ class JourneyDelete(LoginRequiredMixin, DeleteView):
                             kwargs={'pk': travel.pk})
 
 
-class FlightDetailView(DetailView):
-    """ flight details """
-    
-    model = Flight
-
-
 class FlightIndexView(FormMixin, ListView):
     """ list of flights """
 
@@ -262,8 +256,11 @@ class FlightIndexView(FormMixin, ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # import pdb; pdb.set_trace()
         context['count'] = self.object_list.count()
+
+        from django.db.models import Sum
+        context['total_distance'] = Flight.objects.all()\
+                                                  .aggregate(Sum('distance'))
         return context
 
     def get_initial(self):
@@ -286,6 +283,12 @@ class FlightIndexView(FormMixin, ListView):
         return super().dispatch(request, *args, **kwargs)
 
 
+class FlightDetailView(DetailView):
+    """ flight details """
+    
+    model = Flight
+
+
 class FlightCreate(LoginRequiredMixin, CreateView):
     """ create a flight """
 
@@ -297,15 +300,7 @@ class FlightCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_initial(self):
-        # import pdb; pdb.set_trace()
-        
         return {'travel': self.kwargs.get('travel')}
-        # return ''
-        
-    # def get_form_kwargs(self):
-        # kwargs = super().get_form_kwargs()
-        # kwargs.update(session_data={'travel': self.kwargs.get('travel')})
-        # return kwargs
     
 
 class FlightUpdate(LoginRequiredMixin, UpdateView):

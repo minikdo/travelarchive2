@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
+import os
+
 
 CURRENCY_CHOICES = (
     ('PLN', 'PLN Polish Złoty'),
@@ -11,6 +13,21 @@ CURRENCY_CHOICES = (
     ('GBP', 'GBP British Pound')
 )
 
+MAX_TRAVEL_DAYS = 70
+
+
+def travel_upload_location(instance, filename):
+    fname, ext = os.path.splitext(filename)
+    return "travels/{id}{ext}".format(id=instance.id, ext=ext)
+
+
+def flight_upload_location(instance, filename):
+    fname, ext = os.path.splitext(filename)
+    flight = instance.flight_number.replace(" ", "")
+    return "flight/{id}_{flight}{ext}".format(id=instance.id,
+                                              flight=flight,
+                                              ext=ext)
+
 
 class Travel(models.Model):
     """ main travels model """
@@ -18,6 +35,8 @@ class Travel(models.Model):
     country = models.ManyToManyField('Country', related_name='countries')
     start_date = models.DateField()
     end_date = models.DateField()
+    key_photo = models.ImageField(upload_to=travel_upload_location,
+                                  blank=True, null=True)
     notes = models.CharField(max_length=50, blank=True, null=True)
     
     class Meta:
@@ -34,13 +53,23 @@ class Travel(models.Model):
 
     def get_absolute_url(self):
         return reverse('travels:travel-detail', kwargs={'pk': self.pk})
+    
+    def save(self, *args, **kwargs):
+        if self.pk:
+            this_record = Travel.objects.get(pk=self.pk)
+            if this_record.key_photo != self.key_photo:
+                this_record.key_photo.delete(save=False)
+        super(Travel, self).save(*args, **kwargs)
 
     def clean(self):
         delta = self.end_date - self.start_date
-        if self.start_date > self.end_date or\
-           delta.days > 60:
+        
+        if self.start_date > self.end_date:
             raise ValidationError({'start_date':
-                                   _('wrong dates')})
+                                   _("start later than end")})
+        if delta.days > MAX_TRAVEL_DAYS:
+            raise ValidationError({'start_date':
+                                   _("travel time exceeded")})
     
 
 class Place(models.Model):
@@ -69,7 +98,7 @@ class Place(models.Model):
     def clean(self):
         if self.start_date > self.end_date:
             raise ValidationError({'start_date':
-                                   _('test Date not within travel dates')})
+                                   _('start later than end')})
 
 
 class Journey(models.Model):
@@ -126,6 +155,8 @@ class Flight(models.Model):
     currency = models.CharField(max_length=3, blank=True, null=True,
                                 choices=CURRENCY_CHOICES)
     purchased = models.DateField(blank=True, null=True)
+    boarding_pass = models.ImageField(upload_to=flight_upload_location,
+                                      blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('travels:flight-detail',

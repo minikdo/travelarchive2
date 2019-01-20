@@ -22,7 +22,7 @@
 
 {% ifchanged %}
 <tr>
-  <td colspan="5"><h4>{{ item.start_date|date:"Y" }}</h4></td>
+  <td colspan="6"><h4>{{ item.start_date|date:"Y" }}</h4></td>
 </tr>
 {% endifchanged %}
 
@@ -36,6 +36,7 @@
     {% endfor %}
   </td>
   <td>{{ item.notes|default_if_none:'' }}</td>
+  <td>{% if item.key_photo %}*{% endif %}</td>
 </tr>
 
 {% endfor %}

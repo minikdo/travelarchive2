@@ -1,21 +1,40 @@
 {% extends 'base.html' %}
 
+{% block extrahead %}
+{{ block.super }}
+<style>
+  .key_photo {
+  float:right;
+  width: 450px;
+  box-shadow: 7px 9px 9px 0px #8888883d;
+  }
+  </style>
+{% endblock %}
+
 {% block body %}
 
 <h1>Travel {{ travel.pk }}</h1>
 
-<h2>
-  {% for item in travel.country.all %}
-  {{ item }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
-  {% endfor %}
-</h2>
-{{ travel.start_date }} &mdash; {{ travel.end_date}}
-<span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
-{% if user.is_authenticated %}
-<a href="{% url 'travels:travel-update' travel.pk %}">Edit</a>
-{% endif %}
-<p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
-
+<div class="row">
+  <div class="six columns">
+    <h2>
+      {% for item in travel.country.all %}
+      {{ item }} {% if forloop.revcounter0 != 0 %}&mdash;{% endif %}
+      {% endfor %}
+    </h2>
+    {{ travel.start_date }} &mdash; {{ travel.end_date}}
+    <span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
+    {% if user.is_authenticated %}
+    <a href="{% url 'travels:travel-update' travel.pk %}">Edit</a>
+    {% endif %}
+    <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
+  </div>
+  <div class="six columns">
+    {% if travel.key_photo %}
+    <img class="key_photo"  alt="" src="{{ travel.key_photo.url }}"/>
+    {% endif %}
+  </div>
+</div>
 <!-- PLACES -->
 
 <h4 id="plc">Places</h4>
@@ -114,8 +133,8 @@
     <td>{{ flight.dest.city }} ({{ flight.dest.iata }})</td>
     <td>{{ flight.distance }} km</td>
     <td>
-      {% if flight.purchased %} {{ flight.currency }} {{ flight.price|floatformat:0 }}
-      <span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
+      {{ flight.currency|default_if_none:'' }} {{ flight.price|floatformat:0|default_if_none:'' }}
+      {% if flight.purchased %}<span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
     </td>
     <td><span class="grey">{{ flight.note|default_if_none:'' }}</span></td>
   </tr>

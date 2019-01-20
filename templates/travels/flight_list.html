@@ -26,7 +26,7 @@
   </div>
 </div>
 
-{% if count %}<hr/><h3>Number of flights: {{ count }}</h3>{% endif %}
+{% if count %}<hr/><h3>Number of flights: {{ count }}, Total distance: {{ total_distance.distance__sum }} km</h3>{% endif %}
 
 {% if flight_list %}
 <table class="table table-striped flights">

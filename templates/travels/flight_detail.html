@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+  #boarding_pass {
+  float:right;
+  width: 335px;
+  }
+  </style>
+{% endblock %}
+
 {% block body %}
 
 {% if flight %}
-
 <h1>Flight {{ flight.flight_number }}</h1>
+
+<div class="row">
+  <div class="nine columns">
 <h4>{{ flight.airline }}</h4>
 
 <table class="table table-striped">
@@ -77,5 +90,13 @@
 <p>if you want to delete this flight <a href="{% url 'travels:flight-delete' object.pk %}">here</a></p>
 {% endif %}
 
-{% endif %}
+  </div>
+  <div style="background-color:yellow" class="three columns">
+    {% if flight.boarding_pass %}
+    <img id="boarding_pass" alt="" src="{{ flight.boarding_pass.url }}"/>
+    {% endif %}
+  </div>
+</div>
+
+  {% endif %}
 {% endblock %}

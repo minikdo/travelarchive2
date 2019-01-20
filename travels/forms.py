@@ -7,6 +7,27 @@ from .models import Place, Country, Travel, Journey, Airport,\
     Flight, Airline
 
 
+class TravelForm(forms.ModelForm):
+
+    start_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                                 localize=False)
+    end_date = forms.DateField(widget=widgets.AdminDateWidget(),
+                               localize=False)
+    
+    class Meta:
+        model = Travel
+        fields = ['country', 'start_date', 'end_date', 'notes', 'key_photo']
+        widgets = {'country': ModelSelect2Multiple(
+            url='travels:country-autocomplete',
+            attrs={'class': 'form-control'})
+        }
+
+    class Media:
+        js = ('admin/js/vendor/jquery/jquery.js',
+              'admin/js/core.js')
+        css = {'all': ('admin/css/forms.css',)}
+        
+
 class PlaceForm(forms.ModelForm):
 
     def __init__(self, *args, session_data=None, **kwargs):
@@ -45,44 +66,13 @@ class PlaceForm(forms.ModelForm):
         css = {'all': ('admin/css/forms.css',)}
 
 
-class TravelForm(forms.ModelForm):
-
-    start_date = forms.DateField(widget=widgets.AdminDateWidget(),
-                                 localize=False)
-    end_date = forms.DateField(widget=widgets.AdminDateWidget(),
-                               localize=False)
-    
-    class Meta:
-        model = Travel
-        fields = ['country', 'start_date', 'end_date', 'notes']
-        widgets = {'country': ModelSelect2Multiple(
-            url='travels:country-autocomplete',
-            attrs={'class': 'form-control'})
-        }
-
-    class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
-        css = {'all': ('admin/css/forms.css',)}
-        
-
 class JourneyForm(forms.ModelForm):
 
-    # def __init__(self, *args, session_data=None, **kwargs):
-        # super().__init__(*args, **kwargs)
-    
     start_date = forms.DateField(widget=widgets.AdminDateWidget(),
                                  localize=False)
     end_date = forms.DateField(widget=widgets.AdminDateWidget(),
                                localize=False,
                                required=False)
-    # start_date = forms.DateField(
-        # widget=forms.DateInput(format='%Y-%m-%d',
-                               # attrs={'autofocus': True}),
-        # input_formats=['%Y-%m-%d'])
-    # end_date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d'),
-                               # input_formats=['%Y-%m-%d'],
-                               # required=False)
     start_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'),
                                  input_formats=['%H:%M'],
                                  required=False)
@@ -139,15 +129,24 @@ class FlightForm(forms.ModelForm):
 class FlightSearchForm(forms.Form):
     """ flight search form """
 
-    orig = forms.ModelChoiceField(
-        queryset=Airport.objects.exclude(orig=None).order_by('city'),
-        label="from",
-        required=False)
-    dest = forms.ModelChoiceField(
-        queryset=Airport.objects.exclude(dest=None).order_by('city'),
-        label="to",
-        required=False)
-    airline = forms.ModelChoiceField(
-        queryset=Airline.objects.exclude(airline=None).order_by('name'),
-        label="airline",
-        required=False)
+    def __init__(self, *args, session_data=None, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        orig_ids = Flight.objects.values_list('orig', flat=True)
+        dest_ids = Flight.objects.values_list('dest', flat=True)
+        airline_ids = Flight.objects.values_list('airline', flat=True)
+        
+        self.fields['orig'] = forms.ModelChoiceField(
+            queryset=Airport.objects.filter(pk__in=set(orig_ids)),
+            label="from",
+            required=False)
+
+        self.fields['dest'] = forms.ModelChoiceField(
+            queryset=Airport.objects.filter(pk__in=set(dest_ids)),
+            label="to",
+            required=False)
+
+        self.fields['airline'] = forms.ModelChoiceField(
+            queryset=Airline.objects.filter(pk__in=set(airline_ids)),
+            label="airline",
+            required=False)
