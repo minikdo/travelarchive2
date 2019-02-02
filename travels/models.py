@@ -130,7 +130,8 @@ class Journey(models.Model):
 class Flight(models.Model):
     """ flights """
 
-    travel = models.ForeignKey('Travel', null=True, on_delete=models.SET_NULL)
+    travel = models.ForeignKey('Travel', blank=True,
+                               null=True, on_delete=models.SET_NULL)
     date = models.DateField(blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
     orig = models.ForeignKey('Airport',
@@ -149,7 +150,7 @@ class Flight(models.Model):
     duration = models.TimeField(blank=True, null=True)
     seat = models.CharField(max_length=6, blank=True, null=True)
     plane = models.CharField(max_length=40, blank=True, null=True)
-    registration = models.CharField(max_length=10, blank=True, null=True)
+    registration = models.CharField(max_length=20, blank=True, null=True)
     note = models.TextField(max_length=200, blank=True, null=True)
     price = models.FloatField(blank=True, null=True)
     currency = models.CharField(max_length=3, blank=True, null=True,
@@ -163,8 +164,15 @@ class Flight(models.Model):
                        kwargs={'pk': self.pk}) + '#fl'
 
     class Meta:
-        ordering = ['date']
+        ordering = ['date', 'time']
         
+    def save(self, *args, **kwargs):
+        if self.pk:
+            this_record = Flight.objects.get(pk=self.pk)
+            if this_record.boarding_pass != self.boarding_pass:
+                this_record.boarding_pass.delete(save=False)
+        super(Flight, self).save(*args, **kwargs)
+
     @property
     def purchase_delta(self):
         """ time difference between purchase and departure """
@@ -176,6 +184,11 @@ class Flight(models.Model):
     def __str__(self):
         str = "{}, {} -> {}".format(self.date, self.orig, self.dest)
         return str
+
+    def clean(self):
+        if self.purchased and self.purchased > self.date:
+            raise ValidationError({'purchased':
+                                   _('purchase date later than fligth date')})
 
 
 class Transport(models.Model):
