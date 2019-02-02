@@ -126,27 +126,50 @@ class FlightForm(forms.ModelForm):
         css = {'all': ('admin/css/forms.css',)}
 
 
-class FlightSearchForm(forms.Form):
+class FlightSearchForm(forms.ModelForm):
     """ flight search form """
 
-    def __init__(self, *args, session_data=None, **kwargs):
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, session_data=None, **kwargs):
+        # super().__init__(*args, **kwargs)
 
-        orig_ids = Flight.objects.values_list('orig', flat=True)
-        dest_ids = Flight.objects.values_list('dest', flat=True)
-        airline_ids = Flight.objects.values_list('airline', flat=True)
+        # orig_ids = Flight.objects.values_list('orig', flat=True)
+        # dest_ids = Flight.objects.values_list('dest', flat=True)
+        # airline_ids = Flight.objects.values_list('airline', flat=True)
         
-        self.fields['orig'] = forms.ModelChoiceField(
-            queryset=Airport.objects.filter(pk__in=set(orig_ids)),
-            label="from",
-            required=False)
+        # self.fields['orig'] = forms.ModelChoiceField(
+            # queryset=Airport.objects.filter(pk__in=set(orig_ids)),
+            # label="from",
+            # required=False)
 
-        self.fields['dest'] = forms.ModelChoiceField(
-            queryset=Airport.objects.filter(pk__in=set(dest_ids)),
-            label="to",
-            required=False)
+        # self.fields['dest'] = forms.ModelChoiceField(
+            # queryset=Airport.objects.filter(pk__in=set(dest_ids)),
+            # label="to",
+            # required=False)
 
-        self.fields['airline'] = forms.ModelChoiceField(
-            queryset=Airline.objects.filter(pk__in=set(airline_ids)),
-            label="airline",
-            required=False)
+        # self.fields['airline'] = forms.ModelChoiceField(
+            # queryset=Airline.objects.filter(pk__in=set(airline_ids)),
+            # label="airline",
+            # required=False)
+
+    flight_number = forms.CharField(required=False,
+                                    widget=forms.TextInput(attrs={
+                                        'autofocus': True,
+                                        'tabindex': 1}))
+
+    class Meta:
+        model = Flight
+        fields = ['orig', 'dest', 'airline', 'flight_number']
+        widgets = {'orig': ModelSelect2(url='travels:airport-autocomplete',
+                                        attrs={'class': 'form-control',
+                                               'tabindex': 2}),
+                   'dest': ModelSelect2(url='travels:airport-autocomplete',
+                                        attrs={'class': 'form-control',
+                                               'tabindex': 3}),
+                   'airline': ModelSelect2(url='travels:airline-autocomplete',
+                                           attrs={'class': 'form-control',
+                                                  'tabindex': 4})}
+
+    class Media:
+        js = ('admin/js/vendor/jquery/jquery.js',
+              'admin/js/core.js')
+        css = {'all': ('admin/css/forms.css',)}
