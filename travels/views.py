@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q, Count
+from django.http import HttpResponse
 
 from dal.autocomplete import Select2QuerySetView
 
@@ -70,7 +71,7 @@ class TravelDetailView(TemplateView):
                                      .prefetch_related('transport_type')
         context['flights'] = Flight.objects\
                                    .filter(travel__pk=travel)\
-                                   .prefetch_related('orig', 'dest')
+                                   .prefetch_related('orig', 'dest', 'airline')
         return context
 
 
@@ -249,6 +250,8 @@ class FlightIndexView(FormMixin, ListView):
             query = query.filter(dest=self.dest)
         if self.airline:
             query = query.filter(airline=self.airline)
+        if self.flight_number:
+            query = query.filter(flight_number__icontains=self.flight_number)
 
         query = query.prefetch_related('orig', 'dest', 'airline')
             
@@ -272,6 +275,8 @@ class FlightIndexView(FormMixin, ListView):
             initials['dest'] = self.dest
         if self.airline:
             initials['airline'] = self.airline
+        if self.flight_number:
+            initials['flight_number'] = self.flight_number
             
         return initials
          
@@ -280,6 +285,7 @@ class FlightIndexView(FormMixin, ListView):
         self.orig = request.GET.get('orig', None)
         self.dest = request.GET.get('dest', None)
         self.airline = request.GET.get('airline', None)
+        self.flight_number = request.GET.get('flight_number', None)
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -340,8 +346,8 @@ class AirportAutocomplete(Select2QuerySetView):
         qs = Airport.objects.all()
         
         if self.q:
-            qs = qs.filter(Q(city__istartswith=self.q) |
-                           Q(iata__icontains=self.q))
+            qs = qs.filter(Q(iata__contains=self.q) |
+                           Q(city__startswith=self.q))
             
         return qs
 
