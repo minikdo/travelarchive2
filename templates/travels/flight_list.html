@@ -45,25 +45,66 @@
 
   {% ifchanged %}
   <tr>
-    <td colspan="8"><h4>{{ flight.date|date:"Y" }}</h4></td>
+    <td colspan="9"><h4>{{ flight.date|date:"Y" }}</h4></td>
   </tr>
   {% endifchanged %}
 
   <tr>
-    <td>{{ flight.date|date:"Y-m-d" }}</br><span class="grey">{{ flight.time|default_if_none:'&nbsp;' }}</span></td>
+    <td>
+      {{ flight.date|date:"Y-m-d" }}
+      <br/>
+      <span class="grey">{{ flight.time|default_if_none:'&nbsp;' }}</span>
+    </td>
     <td title="{{ flight.orig.name }}">
-      <strong>{{ flight.orig.iata }}</strong><br/>{{ flight.orig.city }}</td>
+      <strong>{{ flight.orig.iata }}</strong>
+      <br/>
+      {{ flight.orig.city }}
+    </td>
     <td title="{{ flight.dest.name }}">
-      <strong>{{ flight.dest.iata }}</strong><br/>{{ flight.dest.city }}</td>
-    <td title="{{ flight.note }}"><strong>{{ flight.flight_number }}</strong><br/>{{ flight.airline }}</td>
+      <strong>{{ flight.dest.iata }}</strong>
+      <br/>
+      {{ flight.dest.city }}
+    </td>
+    <td title="{{ flight.note }}">
+      <strong>{{ flight.flight_number }}</strong>
+      <br/>
+      {{ flight.airline }}
+    </td>
     <td>{{ flight.distance }} km</td>
     <td>{{ flight.duration|time:"H:i" }}</td>
-    <td>{{ flight.plane }}</td>
-    <td><span class="grey">{{ flight.travel_id }}</span></br>
-      <a href="{% url 'travels:flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a></td>
+    <td>{{ flight.plane|default_if_none:'' }}</td>
+    <td>{% if flight.boarding_pass %} <span class="grey">&bull;</span> {% endif %}</td>
+    <td>
+      <span class="grey">{{ flight.travel_id }}</span>
+      <br/>
+      <a href="{% url 'travels:flight-detail' flight.pk %}"><img width="12px" alt="" src="{% static 'magnifying-glass.svg' %}"/></a>
+    </td>
   </tr>
   {% endfor %}
 </table>
 {% include "travels/paginator.html" %}
 {% endif %}
+{% endblock %}
+
+{% block footer %}
+<!-- <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script> -->
+
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+
+{{ form.media }}
+
+<style>
+  label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #db5000;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #0091b5;
+  }
+  .select2-container .select2-selection--single {
+  margin-bottom: 1.5rem;
+  }
+</style>
+
 {% endblock %}

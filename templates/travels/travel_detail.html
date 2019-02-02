@@ -25,9 +25,9 @@
     {{ travel.start_date }} &mdash; {{ travel.end_date}}
     <span class="grey">({{ travel.start_date|timesince:travel.end_date }})</span>
     {% if user.is_authenticated %}
-    <a href="{% url 'travels:travel-update' travel.pk %}">Edit</a>
+    <a href="{% url 'travels:travel-update' travel.pk %}">EDIT</a>
     {% endif %}
-    <p><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
+    <p style="margin-top:20px;"><span class="grey">{{ travel.notes|default_if_none:'' }}</span></p>
   </div>
   <div class="six columns">
     {% if travel.key_photo %}
@@ -96,8 +96,11 @@
     {{ forloop.counter }}
     {% endif %}
   </td>
-  <td>{{ journey.start_date}} <span class="grey">{{ journey.start_time|default_if_none:'' }}</span></td>
-  <td>{{ journey.end_date|default_if_none:'' }}</td>
+  <td>{{ journey.start_date}} <strong>{{ journey.start_time|default_if_none:'' }}</strong>
+    {% if journey.end_date %}
+    </br><span class="grey">&rarr; {{ journey.end_date }}<span>
+    {% endif %}
+  </td>
   <td>{{ journey.transport_type.name }}</td>
   <td>{{ journey.orig }}</td>
   <td>&rarr;</td>
@@ -115,7 +118,7 @@
 
 <h4 id="fl">Flights</h4>
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and travel.pk %}
 <div><a class="button button-primary" href="{% url 'travels:flight-create' travel.pk %}">add flight</a></div>
 {% endif %}
 
@@ -127,16 +130,20 @@
 
   <tr>
     <td><a href="{% url 'travels:flight-detail' flight.pk %}">{{ forloop.counter }}</a></td>
-    <td>{{ flight.date }} <span class="grey">{{ flight.time|default_if_none:'' }}</span></td>
-    <td>{{ flight.orig.city }} ({{ flight.orig.iata }})</td>
-    <td>&rarr;</td>
-    <td>{{ flight.dest.city }} ({{ flight.dest.iata }})</td>
+    <td>{{ flight.date }}</br><span class="grey">{{ flight.time|default_if_none:'' }}</span></td>
+    <td title="{{ flight.orig.name }}">
+      <strong>{{ flight.orig.iata }}</strong><br/>{{ flight.orig.city }}</td>
+    <td title="{{ flight.dest.name }}">
+      <strong>{{ flight.dest.iata }}</strong><br/>{{ flight.dest.city }}</td>
+    <td title="{{ flight.note }}"><strong>{{ flight.flight_number }}</strong><br/>{{ flight.airline.name }}</td>
     <td>{{ flight.distance }} km</td>
+    <td>{{ flight.duration|time:"H:i" }}</td>
+    <td>{% if flight.boarding_pass %} <span class="grey" title="boarding pass">&bull;</span> {% endif %}</td>
     <td>
       {{ flight.currency|default_if_none:'' }} {{ flight.price|floatformat:0|default_if_none:'' }}
       {% if flight.purchased %}<span class="grey">({{ flight.purchase_delta }} days before)</span>{% endif %}
+      <span class="grey">{{ flight.note|default_if_none:'' }}</span>
     </td>
-    <td><span class="grey">{{ flight.note|default_if_none:'' }}</span></td>
   </tr>
 
   {% endfor %}

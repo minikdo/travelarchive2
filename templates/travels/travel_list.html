@@ -36,7 +36,7 @@
     {% endfor %}
   </td>
   <td>{{ item.notes|default_if_none:'' }}</td>
-  <td>{% if item.key_photo %}*{% endif %}</td>
+  <td>{% if item.key_photo %}<span class="grey">&bull;</span>{% endif %}</td>
 </tr>
 
 {% endfor %}
