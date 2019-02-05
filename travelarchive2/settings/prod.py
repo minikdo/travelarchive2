@@ -12,6 +12,6 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS += ['10.4.0.1', 'travelarchive2']
+ALLOWED_HOSTS += ['travelarchive2']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
