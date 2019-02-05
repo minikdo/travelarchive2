@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView,\
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q, Count
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 from dal.autocomplete import Select2QuerySetView
 
