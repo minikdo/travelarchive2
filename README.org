@@ -16,6 +16,16 @@ pip install -r requirements/local.txt
 
 ./manage.py createsuperuser
 
+#+END_SRC
+
+4. Load data into database:
+
+#+BEGIN_SRC sh
+
+gunzip data/*.gz
+
+./manage.py loaddata data/{airport,airline,country}.json
+
 ./run
 
 #+END_SRC
