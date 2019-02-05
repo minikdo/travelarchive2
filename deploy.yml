@@ -1,0 +1,33 @@
+---
+- hosts: "{{ remote_host }}"
+
+  remote_user: "{{ remote_user }}"
+
+  tasks:
+  - name: git pull project
+    git:
+      repo: "{{ git_repo }}"
+      dest: "{{ proj_path }}"
+    tags: pull
+      
+  - name: touch wsgi.py
+    file:
+      path: '{{ proj_path }}/{{ proj_name }}/wsgi.py'
+      state: touch
+    tags: touch
+
+  - name: create virtualenv
+    command: virtualenv "{{ venv_path }}" -p python3 creates="{{ venv_path }}"
+    tags: venv
+
+  - name: install production requirements
+    pip:
+      requirements: "{{ proj_path }}/requirements/prod.txt"
+      virtualenv: "{{ venv_path }}"
+    tags: venv
+
+  - name: copy secrets.json
+    copy:
+      src: "{{ proj_name }}/settings/secrets.json"
+      dest: "{{ proj_path }}/{{ proj_name }}/settings/"
+    tags: secrets

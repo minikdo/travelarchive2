@@ -1,0 +1,6 @@
+remote_host: adm
+remote_user: www-data
+git_repo: https://github.com/minikdo/travelarchive2.git
+proj_name: travelarchive2
+proj_path: /var/www/travelarchive2/
+venv_path: /var/www/travelarchive2/.venv
