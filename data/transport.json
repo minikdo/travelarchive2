@@ -1,0 +1,65 @@
+[
+{
+  "model": "travels.transport",
+  "pk": 1,
+  "fields": {
+    "name": "walk"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 2,
+  "fields": {
+    "name": "plane"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 3,
+  "fields": {
+    "name": "train"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 4,
+  "fields": {
+    "name": "bus"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 5,
+  "fields": {
+    "name": "ferry"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 6,
+  "fields": {
+    "name": "car"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 7,
+  "fields": {
+    "name": "taxi"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 8,
+  "fields": {
+    "name": "stay"
+  }
+},
+{
+  "model": "travels.transport",
+  "pk": 9,
+  "fields": {
+    "name": "chairlift"
+  }
+}
+]

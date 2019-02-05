@@ -1,0 +1,3200 @@
+[
+{
+  "model": "travels.country",
+  "pk": 466,
+  "fields": {
+    "country_name": "Somaliland",
+    "capital_name": "Hargeisa",
+    "capital_lat": "9.55",
+    "capital_lon": "44.050000",
+    "country_code": "NULL",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 467,
+  "fields": {
+    "country_name": "South Georgia and South Sandwich Islands",
+    "capital_name": "King Edward Point",
+    "capital_lat": "-54.283333",
+    "capital_lon": "-36.500000",
+    "country_code": "GS",
+    "continent_name": "Antarctica",
+    "sort_order": 8
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 468,
+  "fields": {
+    "country_name": "French Southern and Antarctic Lands",
+    "capital_name": "Port-aux-Fran\u00e7ais",
+    "capital_lat": "-49.35",
+    "capital_lon": "70.216667",
+    "country_code": "TF",
+    "continent_name": "Antarctica",
+    "sort_order": 8
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 469,
+  "fields": {
+    "country_name": "Palestine",
+    "capital_name": "Jerusalem",
+    "capital_lat": "31.766666666666666",
+    "capital_lon": "35.233333",
+    "country_code": "PS",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 470,
+  "fields": {
+    "country_name": "Aland Islands",
+    "capital_name": "Mariehamn",
+    "capital_lat": "60.116667",
+    "capital_lon": "19.900000",
+    "country_code": "AX",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 471,
+  "fields": {
+    "country_name": "Nauru",
+    "capital_name": "Yaren",
+    "capital_lat": "-0.5477",
+    "capital_lon": "166.920867",
+    "country_code": "NR",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 472,
+  "fields": {
+    "country_name": "Saint Martin",
+    "capital_name": "Marigot",
+    "capital_lat": "18.0731",
+    "capital_lon": "-63.082200",
+    "country_code": "MF",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 473,
+  "fields": {
+    "country_name": "Tokelau",
+    "capital_name": "Atafu",
+    "capital_lat": "-9.166667",
+    "capital_lon": "-171.833333",
+    "country_code": "TK",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 474,
+  "fields": {
+    "country_name": "Western Sahara",
+    "capital_name": "El-Aai\u00fan",
+    "capital_lat": "27.153611",
+    "capital_lon": "-13.203333",
+    "country_code": "EH",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 475,
+  "fields": {
+    "country_name": "Afghanistan",
+    "capital_name": "Kabul",
+    "capital_lat": "34.516666666666666",
+    "capital_lon": "69.183333",
+    "country_code": "AF",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 476,
+  "fields": {
+    "country_name": "Albania",
+    "capital_name": "Tirana",
+    "capital_lat": "41.31666666666667",
+    "capital_lon": "19.816667",
+    "country_code": "AL",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 477,
+  "fields": {
+    "country_name": "Algeria",
+    "capital_name": "Algiers",
+    "capital_lat": "36.75",
+    "capital_lon": "3.050000",
+    "country_code": "DZ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 478,
+  "fields": {
+    "country_name": "American Samoa",
+    "capital_name": "Pago Pago",
+    "capital_lat": "-14.266666666666667",
+    "capital_lon": "-170.700000",
+    "country_code": "AS",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 479,
+  "fields": {
+    "country_name": "Andorra",
+    "capital_name": "Andorra la Vella",
+    "capital_lat": "42.5",
+    "capital_lon": "1.516667",
+    "country_code": "AD",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 480,
+  "fields": {
+    "country_name": "Angola",
+    "capital_name": "Luanda",
+    "capital_lat": "-8.833333333333334",
+    "capital_lon": "13.216667",
+    "country_code": "AO",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 481,
+  "fields": {
+    "country_name": "Anguilla",
+    "capital_name": "The Valley",
+    "capital_lat": "18.216666666666665",
+    "capital_lon": "-63.050000",
+    "country_code": "AI",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 482,
+  "fields": {
+    "country_name": "Antigua and Barbuda",
+    "capital_name": "Saint John's",
+    "capital_lat": "17.116666666666667",
+    "capital_lon": "-61.850000",
+    "country_code": "AG",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 483,
+  "fields": {
+    "country_name": "Argentina",
+    "capital_name": "Buenos Aires",
+    "capital_lat": "-34.583333333333336",
+    "capital_lon": "-58.666667",
+    "country_code": "AR",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 484,
+  "fields": {
+    "country_name": "Armenia",
+    "capital_name": "Yerevan",
+    "capital_lat": "40.166666666666664",
+    "capital_lon": "44.500000",
+    "country_code": "AM",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 485,
+  "fields": {
+    "country_name": "Aruba",
+    "capital_name": "Oranjestad",
+    "capital_lat": "12.516666666666667",
+    "capital_lon": "-70.033333",
+    "country_code": "AW",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 486,
+  "fields": {
+    "country_name": "Australia",
+    "capital_name": "Canberra",
+    "capital_lat": "-35.266666666666666",
+    "capital_lon": "149.133333",
+    "country_code": "AU",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 487,
+  "fields": {
+    "country_name": "Austria",
+    "capital_name": "Vienna",
+    "capital_lat": "48.2",
+    "capital_lon": "16.366667",
+    "country_code": "AT",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 488,
+  "fields": {
+    "country_name": "Azerbaijan",
+    "capital_name": "Baku",
+    "capital_lat": "40.38333333333333",
+    "capital_lon": "49.866667",
+    "country_code": "AZ",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 489,
+  "fields": {
+    "country_name": "Bahamas",
+    "capital_name": "Nassau",
+    "capital_lat": "25.083333333333332",
+    "capital_lon": "-77.350000",
+    "country_code": "BS",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 490,
+  "fields": {
+    "country_name": "Bahrain",
+    "capital_name": "Manama",
+    "capital_lat": "26.233333333333334",
+    "capital_lon": "50.566667",
+    "country_code": "BH",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 491,
+  "fields": {
+    "country_name": "Bangladesh",
+    "capital_name": "Dhaka",
+    "capital_lat": "23.716666666666665",
+    "capital_lon": "90.400000",
+    "country_code": "BD",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 492,
+  "fields": {
+    "country_name": "Barbados",
+    "capital_name": "Bridgetown",
+    "capital_lat": "13.1",
+    "capital_lon": "-59.616667",
+    "country_code": "BB",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 493,
+  "fields": {
+    "country_name": "Belarus",
+    "capital_name": "Minsk",
+    "capital_lat": "53.9",
+    "capital_lon": "27.566667",
+    "country_code": "BY",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 494,
+  "fields": {
+    "country_name": "Belgium",
+    "capital_name": "Brussels",
+    "capital_lat": "50.833333333333336",
+    "capital_lon": "4.333333",
+    "country_code": "BE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 495,
+  "fields": {
+    "country_name": "Belize",
+    "capital_name": "Belmopan",
+    "capital_lat": "17.25",
+    "capital_lon": "-88.766667",
+    "country_code": "BZ",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 496,
+  "fields": {
+    "country_name": "Benin",
+    "capital_name": "Porto-Novo",
+    "capital_lat": "6.483333333333333",
+    "capital_lon": "2.616667",
+    "country_code": "BJ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 497,
+  "fields": {
+    "country_name": "Bermuda",
+    "capital_name": "Hamilton",
+    "capital_lat": "32.28333333333333",
+    "capital_lon": "-64.783333",
+    "country_code": "BM",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 498,
+  "fields": {
+    "country_name": "Bhutan",
+    "capital_name": "Thimphu",
+    "capital_lat": "27.466666666666665",
+    "capital_lon": "89.633333",
+    "country_code": "BT",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 499,
+  "fields": {
+    "country_name": "Bolivia",
+    "capital_name": "La Paz",
+    "capital_lat": "-16.5",
+    "capital_lon": "-68.150000",
+    "country_code": "BO",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 500,
+  "fields": {
+    "country_name": "Bosnia and Herzegovina",
+    "capital_name": "Sarajevo",
+    "capital_lat": "43.86666666666667",
+    "capital_lon": "18.416667",
+    "country_code": "BA",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 501,
+  "fields": {
+    "country_name": "Botswana",
+    "capital_name": "Gaborone",
+    "capital_lat": "-24.633333333333333",
+    "capital_lon": "25.900000",
+    "country_code": "BW",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 502,
+  "fields": {
+    "country_name": "Brazil",
+    "capital_name": "Brasilia",
+    "capital_lat": "-15.783333333333333",
+    "capital_lon": "-47.916667",
+    "country_code": "BR",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 503,
+  "fields": {
+    "country_name": "British Virgin Islands",
+    "capital_name": "Road Town",
+    "capital_lat": "18.416666666666668",
+    "capital_lon": "-64.616667",
+    "country_code": "VG",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 504,
+  "fields": {
+    "country_name": "Brunei Darussalam",
+    "capital_name": "Bandar Seri Begawan",
+    "capital_lat": "4.883333333333333",
+    "capital_lon": "114.933333",
+    "country_code": "BN",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 505,
+  "fields": {
+    "country_name": "Bulgaria",
+    "capital_name": "Sofia",
+    "capital_lat": "42.68333333333333",
+    "capital_lon": "23.316667",
+    "country_code": "BG",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 506,
+  "fields": {
+    "country_name": "Burkina Faso",
+    "capital_name": "Ouagadougou",
+    "capital_lat": "12.366666666666667",
+    "capital_lon": "-1.516667",
+    "country_code": "BF",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 507,
+  "fields": {
+    "country_name": "Myanmar",
+    "capital_name": "Rangoon",
+    "capital_lat": "16.8",
+    "capital_lon": "96.150000",
+    "country_code": "MM",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 508,
+  "fields": {
+    "country_name": "Burundi",
+    "capital_name": "Bujumbura",
+    "capital_lat": "-3.3666666666666667",
+    "capital_lon": "29.350000",
+    "country_code": "BI",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 509,
+  "fields": {
+    "country_name": "Cambodia",
+    "capital_name": "Phnom Penh",
+    "capital_lat": "11.55",
+    "capital_lon": "104.916667",
+    "country_code": "KH",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 510,
+  "fields": {
+    "country_name": "Cameroon",
+    "capital_name": "Yaounde",
+    "capital_lat": "3.8666666666666667",
+    "capital_lon": "11.516667",
+    "country_code": "CM",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 511,
+  "fields": {
+    "country_name": "Canada",
+    "capital_name": "Ottawa",
+    "capital_lat": "45.416666666666664",
+    "capital_lon": "-75.700000",
+    "country_code": "CA",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 512,
+  "fields": {
+    "country_name": "Cape Verde",
+    "capital_name": "Praia",
+    "capital_lat": "14.916666666666666",
+    "capital_lon": "-23.516667",
+    "country_code": "CV",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 513,
+  "fields": {
+    "country_name": "Cayman Islands",
+    "capital_name": "George Town",
+    "capital_lat": "19.3",
+    "capital_lon": "-81.383333",
+    "country_code": "KY",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 514,
+  "fields": {
+    "country_name": "Central African Republic",
+    "capital_name": "Bangui",
+    "capital_lat": "4.366666666666666",
+    "capital_lon": "18.583333",
+    "country_code": "CF",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 515,
+  "fields": {
+    "country_name": "Chad",
+    "capital_name": "N'Djamena",
+    "capital_lat": "12.1",
+    "capital_lon": "15.033333",
+    "country_code": "TD",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 516,
+  "fields": {
+    "country_name": "Chile",
+    "capital_name": "Santiago",
+    "capital_lat": "-33.45",
+    "capital_lon": "-70.666667",
+    "country_code": "CL",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 517,
+  "fields": {
+    "country_name": "China",
+    "capital_name": "Beijing",
+    "capital_lat": "39.916666666666664",
+    "capital_lon": "116.383333",
+    "country_code": "CN",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 518,
+  "fields": {
+    "country_name": "Christmas Island",
+    "capital_name": "The Settlement",
+    "capital_lat": "-10.416666666666666",
+    "capital_lon": "105.716667",
+    "country_code": "CX",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 519,
+  "fields": {
+    "country_name": "Cocos Islands",
+    "capital_name": "West Island",
+    "capital_lat": "-12.166666666666666",
+    "capital_lon": "96.833333",
+    "country_code": "CC",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 520,
+  "fields": {
+    "country_name": "Colombia",
+    "capital_name": "Bogota",
+    "capital_lat": "4.6",
+    "capital_lon": "-74.083333",
+    "country_code": "CO",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 521,
+  "fields": {
+    "country_name": "Comoros",
+    "capital_name": "Moroni",
+    "capital_lat": "-11.7",
+    "capital_lon": "43.233333",
+    "country_code": "KM",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 522,
+  "fields": {
+    "country_name": "Democratic Republic of the Congo",
+    "capital_name": "Kinshasa",
+    "capital_lat": "-4.316666666666666",
+    "capital_lon": "15.300000",
+    "country_code": "CD",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 523,
+  "fields": {
+    "country_name": "Republic of Congo",
+    "capital_name": "Brazzaville",
+    "capital_lat": "-4.25",
+    "capital_lon": "15.283333",
+    "country_code": "CG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 524,
+  "fields": {
+    "country_name": "Cook Islands",
+    "capital_name": "Avarua",
+    "capital_lat": "-21.2",
+    "capital_lon": "-159.766667",
+    "country_code": "CK",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 525,
+  "fields": {
+    "country_name": "Costa Rica",
+    "capital_name": "San Jose",
+    "capital_lat": "9.933333333333334",
+    "capital_lon": "-84.083333",
+    "country_code": "CR",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 526,
+  "fields": {
+    "country_name": "Cote d'Ivoire",
+    "capital_name": "Yamoussoukro",
+    "capital_lat": "6.816666666666666",
+    "capital_lon": "-5.266667",
+    "country_code": "CI",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 527,
+  "fields": {
+    "country_name": "Croatia",
+    "capital_name": "Zagreb",
+    "capital_lat": "45.8",
+    "capital_lon": "16.000000",
+    "country_code": "HR",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 528,
+  "fields": {
+    "country_name": "Cuba",
+    "capital_name": "Havana",
+    "capital_lat": "23.116666666666667",
+    "capital_lon": "-82.350000",
+    "country_code": "CU",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 529,
+  "fields": {
+    "country_name": "Cura\u00e7ao",
+    "capital_name": "Willemstad",
+    "capital_lat": "12.1",
+    "capital_lon": "-68.916667",
+    "country_code": "CW",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 530,
+  "fields": {
+    "country_name": "Cyprus",
+    "capital_name": "Nicosia",
+    "capital_lat": "35.166666666666664",
+    "capital_lon": "33.366667",
+    "country_code": "CY",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 531,
+  "fields": {
+    "country_name": "Czech Republic",
+    "capital_name": "Prague",
+    "capital_lat": "50.083333333333336",
+    "capital_lon": "14.466667",
+    "country_code": "CZ",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 532,
+  "fields": {
+    "country_name": "Denmark",
+    "capital_name": "Copenhagen",
+    "capital_lat": "55.666666666666664",
+    "capital_lon": "12.583333",
+    "country_code": "DK",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 533,
+  "fields": {
+    "country_name": "Djibouti",
+    "capital_name": "Djibouti",
+    "capital_lat": "11.583333333333334",
+    "capital_lon": "43.150000",
+    "country_code": "DJ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 534,
+  "fields": {
+    "country_name": "Dominica",
+    "capital_name": "Roseau",
+    "capital_lat": "15.3",
+    "capital_lon": "-61.400000",
+    "country_code": "DM",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 535,
+  "fields": {
+    "country_name": "Dominican Republic",
+    "capital_name": "Santo Domingo",
+    "capital_lat": "18.466666666666665",
+    "capital_lon": "-69.900000",
+    "country_code": "DO",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 536,
+  "fields": {
+    "country_name": "Ecuador",
+    "capital_name": "Quito",
+    "capital_lat": "-0.21666666666666667",
+    "capital_lon": "-78.500000",
+    "country_code": "EC",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 537,
+  "fields": {
+    "country_name": "Egypt",
+    "capital_name": "Cairo",
+    "capital_lat": "30.05",
+    "capital_lon": "31.250000",
+    "country_code": "EG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 538,
+  "fields": {
+    "country_name": "El Salvador",
+    "capital_name": "San Salvador",
+    "capital_lat": "13.7",
+    "capital_lon": "-89.200000",
+    "country_code": "SV",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 539,
+  "fields": {
+    "country_name": "Equatorial Guinea",
+    "capital_name": "Malabo",
+    "capital_lat": "3.75",
+    "capital_lon": "8.783333",
+    "country_code": "GQ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 540,
+  "fields": {
+    "country_name": "Eritrea",
+    "capital_name": "Asmara",
+    "capital_lat": "15.333333333333334",
+    "capital_lon": "38.933333",
+    "country_code": "ER",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 541,
+  "fields": {
+    "country_name": "Estonia",
+    "capital_name": "Tallinn",
+    "capital_lat": "59.43333333333333",
+    "capital_lon": "24.716667",
+    "country_code": "EE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 542,
+  "fields": {
+    "country_name": "Ethiopia",
+    "capital_name": "Addis Ababa",
+    "capital_lat": "9.033333333333333",
+    "capital_lon": "38.700000",
+    "country_code": "ET",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 543,
+  "fields": {
+    "country_name": "Falkland Islands",
+    "capital_name": "Stanley",
+    "capital_lat": "-51.7",
+    "capital_lon": "-57.850000",
+    "country_code": "FK",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 544,
+  "fields": {
+    "country_name": "Faroe Islands",
+    "capital_name": "Torshavn",
+    "capital_lat": "62",
+    "capital_lon": "-6.766667",
+    "country_code": "FO",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 545,
+  "fields": {
+    "country_name": "Fiji",
+    "capital_name": "Suva",
+    "capital_lat": "-18.133333333333333",
+    "capital_lon": "178.416667",
+    "country_code": "FJ",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 546,
+  "fields": {
+    "country_name": "Finland",
+    "capital_name": "Helsinki",
+    "capital_lat": "60.166666666666664",
+    "capital_lon": "24.933333",
+    "country_code": "FI",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 547,
+  "fields": {
+    "country_name": "France",
+    "capital_name": "Paris",
+    "capital_lat": "48.86666666666667",
+    "capital_lon": "2.333333",
+    "country_code": "FR",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 548,
+  "fields": {
+    "country_name": "French Polynesia",
+    "capital_name": "Papeete",
+    "capital_lat": "-17.533333333333335",
+    "capital_lon": "-149.566667",
+    "country_code": "PF",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 549,
+  "fields": {
+    "country_name": "Gabon",
+    "capital_name": "Libreville",
+    "capital_lat": "0.38333333333333336",
+    "capital_lon": "9.450000",
+    "country_code": "GA",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 550,
+  "fields": {
+    "country_name": "The Gambia",
+    "capital_name": "Banjul",
+    "capital_lat": "13.45",
+    "capital_lon": "-16.566667",
+    "country_code": "GM",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 551,
+  "fields": {
+    "country_name": "Georgia",
+    "capital_name": "Tbilisi",
+    "capital_lat": "41.68333333333333",
+    "capital_lon": "44.833333",
+    "country_code": "GE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 552,
+  "fields": {
+    "country_name": "Germany",
+    "capital_name": "Berlin",
+    "capital_lat": "52.516666666666666",
+    "capital_lon": "13.400000",
+    "country_code": "DE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 553,
+  "fields": {
+    "country_name": "Ghana",
+    "capital_name": "Accra",
+    "capital_lat": "5.55",
+    "capital_lon": "-0.216667",
+    "country_code": "GH",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 554,
+  "fields": {
+    "country_name": "Gibraltar",
+    "capital_name": "Gibraltar",
+    "capital_lat": "36.13333333333333",
+    "capital_lon": "-5.350000",
+    "country_code": "GI",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 555,
+  "fields": {
+    "country_name": "Greece",
+    "capital_name": "Athens",
+    "capital_lat": "37.983333333333334",
+    "capital_lon": "23.733333",
+    "country_code": "GR",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 556,
+  "fields": {
+    "country_name": "Greenland",
+    "capital_name": "Nuuk",
+    "capital_lat": "64.18333333333334",
+    "capital_lon": "-51.750000",
+    "country_code": "GL",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 557,
+  "fields": {
+    "country_name": "Grenada",
+    "capital_name": "Saint George's",
+    "capital_lat": "12.05",
+    "capital_lon": "-61.750000",
+    "country_code": "GD",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 558,
+  "fields": {
+    "country_name": "Guam",
+    "capital_name": "Hagatna",
+    "capital_lat": "13.466666666666667",
+    "capital_lon": "144.733333",
+    "country_code": "GU",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 559,
+  "fields": {
+    "country_name": "Guatemala",
+    "capital_name": "Guatemala City",
+    "capital_lat": "14.616666666666667",
+    "capital_lon": "-90.516667",
+    "country_code": "GT",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 560,
+  "fields": {
+    "country_name": "Guernsey",
+    "capital_name": "Saint Peter Port",
+    "capital_lat": "49.45",
+    "capital_lon": "-2.533333",
+    "country_code": "GG",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 561,
+  "fields": {
+    "country_name": "Guinea",
+    "capital_name": "Conakry",
+    "capital_lat": "9.5",
+    "capital_lon": "-13.700000",
+    "country_code": "GN",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 562,
+  "fields": {
+    "country_name": "Guinea-Bissau",
+    "capital_name": "Bissau",
+    "capital_lat": "11.85",
+    "capital_lon": "-15.583333",
+    "country_code": "GW",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 563,
+  "fields": {
+    "country_name": "Guyana",
+    "capital_name": "Georgetown",
+    "capital_lat": "6.8",
+    "capital_lon": "-58.150000",
+    "country_code": "GY",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 564,
+  "fields": {
+    "country_name": "Haiti",
+    "capital_name": "Port-au-Prince",
+    "capital_lat": "18.533333333333335",
+    "capital_lon": "-72.333333",
+    "country_code": "HT",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 565,
+  "fields": {
+    "country_name": "Vatican City",
+    "capital_name": "Vatican City",
+    "capital_lat": "41.9",
+    "capital_lon": "12.450000",
+    "country_code": "VA",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 566,
+  "fields": {
+    "country_name": "Honduras",
+    "capital_name": "Tegucigalpa",
+    "capital_lat": "14.1",
+    "capital_lon": "-87.216667",
+    "country_code": "HN",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 567,
+  "fields": {
+    "country_name": "Hungary",
+    "capital_name": "Budapest",
+    "capital_lat": "47.5",
+    "capital_lon": "19.083333",
+    "country_code": "HU",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 568,
+  "fields": {
+    "country_name": "Iceland",
+    "capital_name": "Reykjavik",
+    "capital_lat": "64.15",
+    "capital_lon": "-21.950000",
+    "country_code": "IS",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 569,
+  "fields": {
+    "country_name": "India",
+    "capital_name": "New Delhi",
+    "capital_lat": "28.6",
+    "capital_lon": "77.200000",
+    "country_code": "IN",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 570,
+  "fields": {
+    "country_name": "Indonesia",
+    "capital_name": "Jakarta",
+    "capital_lat": "-6.166666666666667",
+    "capital_lon": "106.816667",
+    "country_code": "ID",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 571,
+  "fields": {
+    "country_name": "Iran",
+    "capital_name": "Tehran",
+    "capital_lat": "35.7",
+    "capital_lon": "51.416667",
+    "country_code": "IR",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 572,
+  "fields": {
+    "country_name": "Iraq",
+    "capital_name": "Baghdad",
+    "capital_lat": "33.333333333333336",
+    "capital_lon": "44.400000",
+    "country_code": "IQ",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 573,
+  "fields": {
+    "country_name": "Ireland",
+    "capital_name": "Dublin",
+    "capital_lat": "53.31666666666667",
+    "capital_lon": "-6.233333",
+    "country_code": "IE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 574,
+  "fields": {
+    "country_name": "Isle of Man",
+    "capital_name": "Douglas",
+    "capital_lat": "54.15",
+    "capital_lon": "-4.483333",
+    "country_code": "IM",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 575,
+  "fields": {
+    "country_name": "Israel",
+    "capital_name": "Jerusalem",
+    "capital_lat": "31.766666666666666",
+    "capital_lon": "35.233333",
+    "country_code": "IL",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 576,
+  "fields": {
+    "country_name": "Italy",
+    "capital_name": "Rome",
+    "capital_lat": "41.9",
+    "capital_lon": "12.483333",
+    "country_code": "IT",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 577,
+  "fields": {
+    "country_name": "Jamaica",
+    "capital_name": "Kingston",
+    "capital_lat": "18",
+    "capital_lon": "-76.800000",
+    "country_code": "JM",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 578,
+  "fields": {
+    "country_name": "Japan",
+    "capital_name": "Tokyo",
+    "capital_lat": "35.68333333333333",
+    "capital_lon": "139.750000",
+    "country_code": "JP",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 579,
+  "fields": {
+    "country_name": "Jersey",
+    "capital_name": "Saint Helier",
+    "capital_lat": "49.18333333333333",
+    "capital_lon": "-2.100000",
+    "country_code": "JE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 580,
+  "fields": {
+    "country_name": "Jordan",
+    "capital_name": "Amman",
+    "capital_lat": "31.95",
+    "capital_lon": "35.933333",
+    "country_code": "JO",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 581,
+  "fields": {
+    "country_name": "Kazakhstan",
+    "capital_name": "Astana",
+    "capital_lat": "51.166666666666664",
+    "capital_lon": "71.416667",
+    "country_code": "KZ",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 582,
+  "fields": {
+    "country_name": "Kenya",
+    "capital_name": "Nairobi",
+    "capital_lat": "-1.2833333333333332",
+    "capital_lon": "36.816667",
+    "country_code": "KE",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 583,
+  "fields": {
+    "country_name": "Kiribati",
+    "capital_name": "Tarawa",
+    "capital_lat": "-0.8833333333333333",
+    "capital_lon": "169.533333",
+    "country_code": "KI",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 584,
+  "fields": {
+    "country_name": "North Korea",
+    "capital_name": "Pyongyang",
+    "capital_lat": "39.016666666666666",
+    "capital_lon": "125.750000",
+    "country_code": "KP",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 585,
+  "fields": {
+    "country_name": "South Korea",
+    "capital_name": "Seoul",
+    "capital_lat": "37.55",
+    "capital_lon": "126.983333",
+    "country_code": "KR",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 586,
+  "fields": {
+    "country_name": "Kosovo",
+    "capital_name": "Pristina",
+    "capital_lat": "42.666666666666664",
+    "capital_lon": "21.166667",
+    "country_code": "KO",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 587,
+  "fields": {
+    "country_name": "Kuwait",
+    "capital_name": "Kuwait City",
+    "capital_lat": "29.366666666666667",
+    "capital_lon": "47.966667",
+    "country_code": "KW",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 588,
+  "fields": {
+    "country_name": "Kyrgyzstan",
+    "capital_name": "Bishkek",
+    "capital_lat": "42.86666666666667",
+    "capital_lon": "74.600000",
+    "country_code": "KG",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 589,
+  "fields": {
+    "country_name": "Laos",
+    "capital_name": "Vientiane",
+    "capital_lat": "17.966666666666665",
+    "capital_lon": "102.600000",
+    "country_code": "LA",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 590,
+  "fields": {
+    "country_name": "Latvia",
+    "capital_name": "Riga",
+    "capital_lat": "56.95",
+    "capital_lon": "24.100000",
+    "country_code": "LV",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 591,
+  "fields": {
+    "country_name": "Lebanon",
+    "capital_name": "Beirut",
+    "capital_lat": "33.86666666666667",
+    "capital_lon": "35.500000",
+    "country_code": "LB",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 592,
+  "fields": {
+    "country_name": "Lesotho",
+    "capital_name": "Maseru",
+    "capital_lat": "-29.316666666666666",
+    "capital_lon": "27.483333",
+    "country_code": "LS",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 593,
+  "fields": {
+    "country_name": "Liberia",
+    "capital_name": "Monrovia",
+    "capital_lat": "6.3",
+    "capital_lon": "-10.800000",
+    "country_code": "LR",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 594,
+  "fields": {
+    "country_name": "Libya",
+    "capital_name": "Tripoli",
+    "capital_lat": "32.88333333333333",
+    "capital_lon": "13.166667",
+    "country_code": "LY",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 595,
+  "fields": {
+    "country_name": "Liechtenstein",
+    "capital_name": "Vaduz",
+    "capital_lat": "47.13333333333333",
+    "capital_lon": "9.516667",
+    "country_code": "LI",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 596,
+  "fields": {
+    "country_name": "Lithuania",
+    "capital_name": "Vilnius",
+    "capital_lat": "54.68333333333333",
+    "capital_lon": "25.316667",
+    "country_code": "LT",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 597,
+  "fields": {
+    "country_name": "Luxembourg",
+    "capital_name": "Luxembourg",
+    "capital_lat": "49.6",
+    "capital_lon": "6.116667",
+    "country_code": "LU",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 598,
+  "fields": {
+    "country_name": "Macedonia",
+    "capital_name": "Skopje",
+    "capital_lat": "42",
+    "capital_lon": "21.433333",
+    "country_code": "MK",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 599,
+  "fields": {
+    "country_name": "Madagascar",
+    "capital_name": "Antananarivo",
+    "capital_lat": "-18.916666666666668",
+    "capital_lon": "47.516667",
+    "country_code": "MG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 600,
+  "fields": {
+    "country_name": "Malawi",
+    "capital_name": "Lilongwe",
+    "capital_lat": "-13.966666666666667",
+    "capital_lon": "33.783333",
+    "country_code": "MW",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 601,
+  "fields": {
+    "country_name": "Malaysia",
+    "capital_name": "Kuala Lumpur",
+    "capital_lat": "3.1666666666666665",
+    "capital_lon": "101.700000",
+    "country_code": "MY",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 602,
+  "fields": {
+    "country_name": "Maldives",
+    "capital_name": "Male",
+    "capital_lat": "4.166666666666667",
+    "capital_lon": "73.500000",
+    "country_code": "MV",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 603,
+  "fields": {
+    "country_name": "Mali",
+    "capital_name": "Bamako",
+    "capital_lat": "12.65",
+    "capital_lon": "-8.000000",
+    "country_code": "ML",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 604,
+  "fields": {
+    "country_name": "Malta",
+    "capital_name": "Valletta",
+    "capital_lat": "35.88333333333333",
+    "capital_lon": "14.500000",
+    "country_code": "MT",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 605,
+  "fields": {
+    "country_name": "Marshall Islands",
+    "capital_name": "Majuro",
+    "capital_lat": "7.1",
+    "capital_lon": "171.383333",
+    "country_code": "MH",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 606,
+  "fields": {
+    "country_name": "Mauritania",
+    "capital_name": "Nouakchott",
+    "capital_lat": "18.066666666666666",
+    "capital_lon": "-15.966667",
+    "country_code": "MR",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 607,
+  "fields": {
+    "country_name": "Mauritius",
+    "capital_name": "Port Louis",
+    "capital_lat": "-20.15",
+    "capital_lon": "57.483333",
+    "country_code": "MU",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 608,
+  "fields": {
+    "country_name": "Mexico",
+    "capital_name": "Mexico City",
+    "capital_lat": "19.433333333333334",
+    "capital_lon": "-99.133333",
+    "country_code": "MX",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 609,
+  "fields": {
+    "country_name": "Federated States of Micronesia",
+    "capital_name": "Palikir",
+    "capital_lat": "6.916666666666667",
+    "capital_lon": "158.150000",
+    "country_code": "FM",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 610,
+  "fields": {
+    "country_name": "Moldova",
+    "capital_name": "Chisinau",
+    "capital_lat": "47",
+    "capital_lon": "28.850000",
+    "country_code": "MD",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 611,
+  "fields": {
+    "country_name": "Monaco",
+    "capital_name": "Monaco",
+    "capital_lat": "43.733333333333334",
+    "capital_lon": "7.416667",
+    "country_code": "MC",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 612,
+  "fields": {
+    "country_name": "Mongolia",
+    "capital_name": "Ulaanbaatar",
+    "capital_lat": "47.916666666666664",
+    "capital_lon": "106.916667",
+    "country_code": "MN",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 613,
+  "fields": {
+    "country_name": "Montenegro",
+    "capital_name": "Podgorica",
+    "capital_lat": "42.43333333333333",
+    "capital_lon": "19.266667",
+    "country_code": "ME",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 614,
+  "fields": {
+    "country_name": "Montserrat",
+    "capital_name": "Plymouth",
+    "capital_lat": "16.7",
+    "capital_lon": "-62.216667",
+    "country_code": "MS",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 615,
+  "fields": {
+    "country_name": "Morocco",
+    "capital_name": "Rabat",
+    "capital_lat": "34.016666666666666",
+    "capital_lon": "-6.816667",
+    "country_code": "MA",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 616,
+  "fields": {
+    "country_name": "Mozambique",
+    "capital_name": "Maputo",
+    "capital_lat": "-25.95",
+    "capital_lon": "32.583333",
+    "country_code": "MZ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 617,
+  "fields": {
+    "country_name": "Namibia",
+    "capital_name": "Windhoek",
+    "capital_lat": "-22.566666666666666",
+    "capital_lon": "17.083333",
+    "country_code": "NA",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 618,
+  "fields": {
+    "country_name": "Nepal",
+    "capital_name": "Kathmandu",
+    "capital_lat": "27.716666666666665",
+    "capital_lon": "85.316667",
+    "country_code": "NP",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 619,
+  "fields": {
+    "country_name": "Netherlands",
+    "capital_name": "Amsterdam",
+    "capital_lat": "52.35",
+    "capital_lon": "4.916667",
+    "country_code": "NL",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 620,
+  "fields": {
+    "country_name": "New Caledonia",
+    "capital_name": "Noumea",
+    "capital_lat": "-22.266666666666666",
+    "capital_lon": "166.450000",
+    "country_code": "NC",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 621,
+  "fields": {
+    "country_name": "New Zealand",
+    "capital_name": "Wellington",
+    "capital_lat": "-41.3",
+    "capital_lon": "174.783333",
+    "country_code": "NZ",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 622,
+  "fields": {
+    "country_name": "Nicaragua",
+    "capital_name": "Managua",
+    "capital_lat": "12.133333333333333",
+    "capital_lon": "-86.250000",
+    "country_code": "NI",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 623,
+  "fields": {
+    "country_name": "Niger",
+    "capital_name": "Niamey",
+    "capital_lat": "13.516666666666667",
+    "capital_lon": "2.116667",
+    "country_code": "NE",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 624,
+  "fields": {
+    "country_name": "Nigeria",
+    "capital_name": "Abuja",
+    "capital_lat": "9.083333333333334",
+    "capital_lon": "7.533333",
+    "country_code": "NG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 625,
+  "fields": {
+    "country_name": "Niue",
+    "capital_name": "Alofi",
+    "capital_lat": "-19.016666666666666",
+    "capital_lon": "-169.916667",
+    "country_code": "NU",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 626,
+  "fields": {
+    "country_name": "Norfolk Island",
+    "capital_name": "Kingston",
+    "capital_lat": "-29.05",
+    "capital_lon": "167.966667",
+    "country_code": "NF",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 627,
+  "fields": {
+    "country_name": "Northern Mariana Islands",
+    "capital_name": "Saipan",
+    "capital_lat": "15.2",
+    "capital_lon": "145.750000",
+    "country_code": "MP",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 628,
+  "fields": {
+    "country_name": "Norway",
+    "capital_name": "Oslo",
+    "capital_lat": "59.916666666666664",
+    "capital_lon": "10.750000",
+    "country_code": "NO",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 629,
+  "fields": {
+    "country_name": "Oman",
+    "capital_name": "Muscat",
+    "capital_lat": "23.616666666666667",
+    "capital_lon": "58.583333",
+    "country_code": "OM",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 630,
+  "fields": {
+    "country_name": "Pakistan",
+    "capital_name": "Islamabad",
+    "capital_lat": "33.68333333333333",
+    "capital_lon": "73.050000",
+    "country_code": "PK",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 631,
+  "fields": {
+    "country_name": "Palau",
+    "capital_name": "Melekeok",
+    "capital_lat": "7.483333333333333",
+    "capital_lon": "134.633333",
+    "country_code": "PW",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 632,
+  "fields": {
+    "country_name": "Panama",
+    "capital_name": "Panama City",
+    "capital_lat": "8.966666666666667",
+    "capital_lon": "-79.533333",
+    "country_code": "PA",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 633,
+  "fields": {
+    "country_name": "Papua New Guinea",
+    "capital_name": "Port Moresby",
+    "capital_lat": "-9.45",
+    "capital_lon": "147.183333",
+    "country_code": "PG",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 634,
+  "fields": {
+    "country_name": "Paraguay",
+    "capital_name": "Asuncion",
+    "capital_lat": "-25.266666666666666",
+    "capital_lon": "-57.666667",
+    "country_code": "PY",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 635,
+  "fields": {
+    "country_name": "Peru",
+    "capital_name": "Lima",
+    "capital_lat": "-12.05",
+    "capital_lon": "-77.050000",
+    "country_code": "PE",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 636,
+  "fields": {
+    "country_name": "Philippines",
+    "capital_name": "Manila",
+    "capital_lat": "14.6",
+    "capital_lon": "120.966667",
+    "country_code": "PH",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 637,
+  "fields": {
+    "country_name": "Pitcairn Islands",
+    "capital_name": "Adamstown",
+    "capital_lat": "-25.066666666666666",
+    "capital_lon": "-130.083333",
+    "country_code": "PN",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 638,
+  "fields": {
+    "country_name": "Poland",
+    "capital_name": "Warsaw",
+    "capital_lat": "52.25",
+    "capital_lon": "21.000000",
+    "country_code": "PL",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 639,
+  "fields": {
+    "country_name": "Portugal",
+    "capital_name": "Lisbon",
+    "capital_lat": "38.71666666666667",
+    "capital_lon": "-9.133333",
+    "country_code": "PT",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 640,
+  "fields": {
+    "country_name": "Puerto Rico",
+    "capital_name": "San Juan",
+    "capital_lat": "18.466666666666665",
+    "capital_lon": "-66.116667",
+    "country_code": "PR",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 641,
+  "fields": {
+    "country_name": "Qatar",
+    "capital_name": "Doha",
+    "capital_lat": "25.283333333333335",
+    "capital_lon": "51.533333",
+    "country_code": "QA",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 642,
+  "fields": {
+    "country_name": "Romania",
+    "capital_name": "Bucharest",
+    "capital_lat": "44.43333333333333",
+    "capital_lon": "26.100000",
+    "country_code": "RO",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 643,
+  "fields": {
+    "country_name": "Russia",
+    "capital_name": "Moscow",
+    "capital_lat": "55.75",
+    "capital_lon": "37.600000",
+    "country_code": "RU",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 644,
+  "fields": {
+    "country_name": "Rwanda",
+    "capital_name": "Kigali",
+    "capital_lat": "-1.95",
+    "capital_lon": "30.050000",
+    "country_code": "RW",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 645,
+  "fields": {
+    "country_name": "Saint Barthelemy",
+    "capital_name": "Gustavia",
+    "capital_lat": "17.883333333333333",
+    "capital_lon": "-62.850000",
+    "country_code": "BL",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 646,
+  "fields": {
+    "country_name": "Saint Helena",
+    "capital_name": "Jamestown",
+    "capital_lat": "-15.933333333333334",
+    "capital_lon": "-5.716667",
+    "country_code": "SH",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 647,
+  "fields": {
+    "country_name": "Saint Kitts and Nevis",
+    "capital_name": "Basseterre",
+    "capital_lat": "17.3",
+    "capital_lon": "-62.716667",
+    "country_code": "KN",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 648,
+  "fields": {
+    "country_name": "Saint Lucia",
+    "capital_name": "Castries",
+    "capital_lat": "14",
+    "capital_lon": "-61.000000",
+    "country_code": "LC",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 649,
+  "fields": {
+    "country_name": "Saint Pierre and Miquelon",
+    "capital_name": "Saint-Pierre",
+    "capital_lat": "46.766666666666666",
+    "capital_lon": "-56.183333",
+    "country_code": "PM",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 650,
+  "fields": {
+    "country_name": "Saint Vincent and the Grenadines",
+    "capital_name": "Kingstown",
+    "capital_lat": "13.133333333333333",
+    "capital_lon": "-61.216667",
+    "country_code": "VC",
+    "continent_name": "Central America",
+    "sort_order": 4
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 651,
+  "fields": {
+    "country_name": "Samoa",
+    "capital_name": "Apia",
+    "capital_lat": "-13.816666666666666",
+    "capital_lon": "-171.766667",
+    "country_code": "WS",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 652,
+  "fields": {
+    "country_name": "San Marino",
+    "capital_name": "San Marino",
+    "capital_lat": "43.93333333333333",
+    "capital_lon": "12.416667",
+    "country_code": "SM",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 653,
+  "fields": {
+    "country_name": "Sao Tome and Principe",
+    "capital_name": "Sao Tome",
+    "capital_lat": "0.3333333333333333",
+    "capital_lon": "6.733333",
+    "country_code": "ST",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 654,
+  "fields": {
+    "country_name": "Saudi Arabia",
+    "capital_name": "Riyadh",
+    "capital_lat": "24.65",
+    "capital_lon": "46.700000",
+    "country_code": "SA",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 655,
+  "fields": {
+    "country_name": "Senegal",
+    "capital_name": "Dakar",
+    "capital_lat": "14.733333333333333",
+    "capital_lon": "-17.633333",
+    "country_code": "SN",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 656,
+  "fields": {
+    "country_name": "Serbia",
+    "capital_name": "Belgrade",
+    "capital_lat": "44.833333333333336",
+    "capital_lon": "20.500000",
+    "country_code": "RS",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 657,
+  "fields": {
+    "country_name": "Seychelles",
+    "capital_name": "Victoria",
+    "capital_lat": "-4.616666666666667",
+    "capital_lon": "55.450000",
+    "country_code": "SC",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 658,
+  "fields": {
+    "country_name": "Sierra Leone",
+    "capital_name": "Freetown",
+    "capital_lat": "8.483333333333333",
+    "capital_lon": "-13.233333",
+    "country_code": "SL",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 659,
+  "fields": {
+    "country_name": "Singapore",
+    "capital_name": "Singapore",
+    "capital_lat": "1.2833333333333332",
+    "capital_lon": "103.850000",
+    "country_code": "SG",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 660,
+  "fields": {
+    "country_name": "Sint Maarten",
+    "capital_name": "Philipsburg",
+    "capital_lat": "18.016666666666666",
+    "capital_lon": "-63.033333",
+    "country_code": "SX",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 661,
+  "fields": {
+    "country_name": "Slovakia",
+    "capital_name": "Bratislava",
+    "capital_lat": "48.15",
+    "capital_lon": "17.116667",
+    "country_code": "SK",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 662,
+  "fields": {
+    "country_name": "Slovenia",
+    "capital_name": "Ljubljana",
+    "capital_lat": "46.05",
+    "capital_lon": "14.516667",
+    "country_code": "SI",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 663,
+  "fields": {
+    "country_name": "Solomon Islands",
+    "capital_name": "Honiara",
+    "capital_lat": "-9.433333333333334",
+    "capital_lon": "159.950000",
+    "country_code": "SB",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 664,
+  "fields": {
+    "country_name": "Somalia",
+    "capital_name": "Mogadishu",
+    "capital_lat": "2.066666666666667",
+    "capital_lon": "45.333333",
+    "country_code": "SO",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 665,
+  "fields": {
+    "country_name": "South Africa",
+    "capital_name": "Pretoria",
+    "capital_lat": "-25.7",
+    "capital_lon": "28.216667",
+    "country_code": "ZA",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 666,
+  "fields": {
+    "country_name": "South Sudan",
+    "capital_name": "Juba",
+    "capital_lat": "4.85",
+    "capital_lon": "31.616667",
+    "country_code": "SS",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 667,
+  "fields": {
+    "country_name": "Spain",
+    "capital_name": "Madrid",
+    "capital_lat": "40.4",
+    "capital_lon": "-3.683333",
+    "country_code": "ES",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 668,
+  "fields": {
+    "country_name": "Sri Lanka",
+    "capital_name": "Colombo",
+    "capital_lat": "6.916666666666667",
+    "capital_lon": "79.833333",
+    "country_code": "LK",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 669,
+  "fields": {
+    "country_name": "Sudan",
+    "capital_name": "Khartoum",
+    "capital_lat": "15.6",
+    "capital_lon": "32.533333",
+    "country_code": "SD",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 670,
+  "fields": {
+    "country_name": "Suriname",
+    "capital_name": "Paramaribo",
+    "capital_lat": "5.833333333333333",
+    "capital_lon": "-55.166667",
+    "country_code": "SR",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 671,
+  "fields": {
+    "country_name": "Svalbard",
+    "capital_name": "Longyearbyen",
+    "capital_lat": "78.21666666666667",
+    "capital_lon": "15.633333",
+    "country_code": "SJ",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 672,
+  "fields": {
+    "country_name": "Swaziland",
+    "capital_name": "Mbabane",
+    "capital_lat": "-26.316666666666666",
+    "capital_lon": "31.133333",
+    "country_code": "SZ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 673,
+  "fields": {
+    "country_name": "Sweden",
+    "capital_name": "Stockholm",
+    "capital_lat": "59.333333333333336",
+    "capital_lon": "18.050000",
+    "country_code": "SE",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 674,
+  "fields": {
+    "country_name": "Switzerland",
+    "capital_name": "Bern",
+    "capital_lat": "46.916666666666664",
+    "capital_lon": "7.466667",
+    "country_code": "CH",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 675,
+  "fields": {
+    "country_name": "Syria",
+    "capital_name": "Damascus",
+    "capital_lat": "33.5",
+    "capital_lon": "36.300000",
+    "country_code": "SY",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 676,
+  "fields": {
+    "country_name": "Taiwan",
+    "capital_name": "Taipei",
+    "capital_lat": "25.033333333333335",
+    "capital_lon": "121.516667",
+    "country_code": "TW",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 677,
+  "fields": {
+    "country_name": "Tajikistan",
+    "capital_name": "Dushanbe",
+    "capital_lat": "38.55",
+    "capital_lon": "68.766667",
+    "country_code": "TJ",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 678,
+  "fields": {
+    "country_name": "Tanzania",
+    "capital_name": "Dar es Salaam",
+    "capital_lat": "-6.8",
+    "capital_lon": "39.283333",
+    "country_code": "TZ",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 679,
+  "fields": {
+    "country_name": "Thailand",
+    "capital_name": "Bangkok",
+    "capital_lat": "13.75",
+    "capital_lon": "100.516667",
+    "country_code": "TH",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 680,
+  "fields": {
+    "country_name": "Timor-Leste",
+    "capital_name": "Dili",
+    "capital_lat": "-8.583333333333334",
+    "capital_lon": "125.600000",
+    "country_code": "TL",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 681,
+  "fields": {
+    "country_name": "Togo",
+    "capital_name": "Lome",
+    "capital_lat": "6.116666666666666",
+    "capital_lon": "1.216667",
+    "country_code": "TG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 682,
+  "fields": {
+    "country_name": "Tonga",
+    "capital_name": "Nuku'alofa",
+    "capital_lat": "-21.133333333333333",
+    "capital_lon": "-175.200000",
+    "country_code": "TO",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 683,
+  "fields": {
+    "country_name": "Trinidad and Tobago",
+    "capital_name": "Port of Spain",
+    "capital_lat": "10.65",
+    "capital_lon": "-61.516667",
+    "country_code": "TT",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 684,
+  "fields": {
+    "country_name": "Tunisia",
+    "capital_name": "Tunis",
+    "capital_lat": "36.8",
+    "capital_lon": "10.183333",
+    "country_code": "TN",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 685,
+  "fields": {
+    "country_name": "Turkey",
+    "capital_name": "Ankara",
+    "capital_lat": "39.93333333333333",
+    "capital_lon": "32.866667",
+    "country_code": "TR",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 686,
+  "fields": {
+    "country_name": "Turkmenistan",
+    "capital_name": "Ashgabat",
+    "capital_lat": "37.95",
+    "capital_lon": "58.383333",
+    "country_code": "TM",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 687,
+  "fields": {
+    "country_name": "Turks and Caicos Islands",
+    "capital_name": "Grand Turk",
+    "capital_lat": "21.466666666666665",
+    "capital_lon": "-71.133333",
+    "country_code": "TC",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 688,
+  "fields": {
+    "country_name": "Tuvalu",
+    "capital_name": "Funafuti",
+    "capital_lat": "-8.516666666666667",
+    "capital_lon": "179.216667",
+    "country_code": "TV",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 689,
+  "fields": {
+    "country_name": "Uganda",
+    "capital_name": "Kampala",
+    "capital_lat": "0.31666666666666665",
+    "capital_lon": "32.550000",
+    "country_code": "UG",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 690,
+  "fields": {
+    "country_name": "Ukraine",
+    "capital_name": "Kyiv",
+    "capital_lat": "50.43333333333333",
+    "capital_lon": "30.516667",
+    "country_code": "UA",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 691,
+  "fields": {
+    "country_name": "United Arab Emirates",
+    "capital_name": "Abu Dhabi",
+    "capital_lat": "24.466666666666665",
+    "capital_lon": "54.366667",
+    "country_code": "AE",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 692,
+  "fields": {
+    "country_name": "United Kingdom",
+    "capital_name": "London",
+    "capital_lat": "51.5",
+    "capital_lon": "-0.083333",
+    "country_code": "GB",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 693,
+  "fields": {
+    "country_name": "United States",
+    "capital_name": "Washington D.C.",
+    "capital_lat": "38.883333",
+    "capital_lon": "-77.000000",
+    "country_code": "US",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 694,
+  "fields": {
+    "country_name": "Uruguay",
+    "capital_name": "Montevideo",
+    "capital_lat": "-34.85",
+    "capital_lon": "-56.166667",
+    "country_code": "UY",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 695,
+  "fields": {
+    "country_name": "Uzbekistan",
+    "capital_name": "Tashkent",
+    "capital_lat": "41.31666666666667",
+    "capital_lon": "69.250000",
+    "country_code": "UZ",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 696,
+  "fields": {
+    "country_name": "Vanuatu",
+    "capital_name": "Port-Vila",
+    "capital_lat": "-17.733333333333334",
+    "capital_lon": "168.316667",
+    "country_code": "VU",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 697,
+  "fields": {
+    "country_name": "Venezuela",
+    "capital_name": "Caracas",
+    "capital_lat": "10.483333333333333",
+    "capital_lon": "-66.866667",
+    "country_code": "VE",
+    "continent_name": "South America",
+    "sort_order": 5
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 698,
+  "fields": {
+    "country_name": "Vietnam",
+    "capital_name": "Hanoi",
+    "capital_lat": "21.033333333333335",
+    "capital_lon": "105.850000",
+    "country_code": "VN",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 699,
+  "fields": {
+    "country_name": "US Virgin Islands",
+    "capital_name": "Charlotte Amalie",
+    "capital_lat": "18.35",
+    "capital_lon": "-64.933333",
+    "country_code": "VI",
+    "continent_name": "North America",
+    "sort_order": 3
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 700,
+  "fields": {
+    "country_name": "Wallis and Futuna",
+    "capital_name": "Mata-Utu",
+    "capital_lat": "-13.95",
+    "capital_lon": "-171.933333",
+    "country_code": "WF",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 701,
+  "fields": {
+    "country_name": "Yemen",
+    "capital_name": "Sanaa",
+    "capital_lat": "15.35",
+    "capital_lon": "44.200000",
+    "country_code": "YE",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 702,
+  "fields": {
+    "country_name": "Zambia",
+    "capital_name": "Lusaka",
+    "capital_lat": "-15.416666666666666",
+    "capital_lon": "28.283333",
+    "country_code": "ZM",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 703,
+  "fields": {
+    "country_name": "Zimbabwe",
+    "capital_name": "Harare",
+    "capital_lat": "-17.816666666666666",
+    "capital_lon": "31.033333",
+    "country_code": "ZW",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 704,
+  "fields": {
+    "country_name": "US Minor Outlying Islands",
+    "capital_name": "Washington D.C.",
+    "capital_lat": "38.883333",
+    "capital_lon": "-77.000000",
+    "country_code": "UM",
+    "continent_name": "Australia",
+    "sort_order": 7
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 705,
+  "fields": {
+    "country_name": "Antarctica",
+    "capital_name": "N/A",
+    "capital_lat": "0",
+    "capital_lon": "0.000000",
+    "country_code": "AQ",
+    "continent_name": "Antarctica",
+    "sort_order": 8
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 706,
+  "fields": {
+    "country_name": "Northern Cyprus",
+    "capital_name": "North Nicosia",
+    "capital_lat": "35.183333",
+    "capital_lon": "33.366667",
+    "country_code": "NULL",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 707,
+  "fields": {
+    "country_name": "Hong Kong",
+    "capital_name": "N/A",
+    "capital_lat": "0",
+    "capital_lon": "0.000000",
+    "country_code": "HK",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 708,
+  "fields": {
+    "country_name": "Heard Island and McDonald Islands",
+    "capital_name": "N/A",
+    "capital_lat": "0",
+    "capital_lon": "0.000000",
+    "country_code": "HM",
+    "continent_name": "Antarctica",
+    "sort_order": 8
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 709,
+  "fields": {
+    "country_name": "British Indian Ocean Territory",
+    "capital_name": "Diego Garcia",
+    "capital_lat": "-7.3",
+    "capital_lon": "72.400000",
+    "country_code": "IO",
+    "continent_name": "Africa",
+    "sort_order": 6
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 710,
+  "fields": {
+    "country_name": "Macau",
+    "capital_name": "N/A",
+    "capital_lat": "0",
+    "capital_lon": "0.000000",
+    "country_code": "MO",
+    "continent_name": "Asia",
+    "sort_order": 2
+  }
+},
+{
+  "model": "travels.country",
+  "pk": 711,
+  "fields": {
+    "country_name": "Yugoslavia",
+    "capital_name": "Belgrade",
+    "capital_lat": "44.833333333333336",
+    "capital_lon": "20.500000",
+    "country_code": "YU",
+    "continent_name": "Europe",
+    "sort_order": 1
+  }
+}
+]
