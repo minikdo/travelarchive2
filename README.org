@@ -1,5 +1,9 @@
 * Installation
 
+1. Create secrets.json file from travelarchive2/settings/secrets.json_sample
+2. Create django secret key
+3. Create virtualenv and migrate:
+
 #+BEGIN_SRC sh
 
 virtualenv --python python3 .venv
