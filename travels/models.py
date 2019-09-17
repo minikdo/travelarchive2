@@ -84,7 +84,12 @@ class Place(models.Model):
     place = models.CharField(max_length=50, blank=True, null=True)
     gps = models.CharField(max_length=30, blank=True, null=True)
     notes = models.CharField(max_length=150, blank=True, null=True)
-
+    neigh = models.CharField(max_length=100, blank=True, null=True,
+                             verbose_name='neighbourhood')
+    hotel = models.CharField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+    price = models.CharField(max_length=100, blank=True, null=True)
+    
     class Meta:
         ordering = ['start_date']
         

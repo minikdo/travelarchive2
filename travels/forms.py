@@ -3,8 +3,7 @@ from django.contrib.admin import widgets
 
 from dal.autocomplete import ModelSelect2Multiple, ModelSelect2
 
-from .models import Place, Country, Travel, Journey, Airport,\
-    Flight, Airline
+from .models import Place, Country, Travel, Journey, Flight
 
 
 class TravelForm(forms.ModelForm):
@@ -13,7 +12,7 @@ class TravelForm(forms.ModelForm):
                                  localize=False)
     end_date = forms.DateField(widget=widgets.AdminDateWidget(),
                                localize=False)
-    
+
     class Meta:
         model = Travel
         fields = ['country', 'start_date', 'end_date', 'notes', 'key_photo']
@@ -26,7 +25,7 @@ class TravelForm(forms.ModelForm):
         js = ('admin/js/vendor/jquery/jquery.js',
               'admin/js/core.js')
         css = {'all': ('admin/css/forms.css',)}
-        
+
 
 class PlaceForm(forms.ModelForm):
 
@@ -54,11 +53,12 @@ class PlaceForm(forms.ModelForm):
                             widget=forms.Textarea(attrs={'cols': 35,
                                                          'rows': 4,
                                                          'maxlength': 150}))
-    
+
     class Meta:
         model = Place
         fields = ['start_date', 'end_date', 'country', 'city',
-                  'place', 'gps', 'notes']
+                  'neigh', 'place', 'hotel', 'address', 'price',
+                  'notes', 'gps']
 
     class Media:
         js = ('admin/js/vendor/jquery/jquery.js',
@@ -128,28 +128,6 @@ class FlightForm(forms.ModelForm):
 
 class FlightSearchForm(forms.ModelForm):
     """ flight search form """
-
-    # def __init__(self, *args, session_data=None, **kwargs):
-        # super().__init__(*args, **kwargs)
-
-        # orig_ids = Flight.objects.values_list('orig', flat=True)
-        # dest_ids = Flight.objects.values_list('dest', flat=True)
-        # airline_ids = Flight.objects.values_list('airline', flat=True)
-        
-        # self.fields['orig'] = forms.ModelChoiceField(
-            # queryset=Airport.objects.filter(pk__in=set(orig_ids)),
-            # label="from",
-            # required=False)
-
-        # self.fields['dest'] = forms.ModelChoiceField(
-            # queryset=Airport.objects.filter(pk__in=set(dest_ids)),
-            # label="to",
-            # required=False)
-
-        # self.fields['airline'] = forms.ModelChoiceField(
-            # queryset=Airline.objects.filter(pk__in=set(airline_ids)),
-            # label="airline",
-            # required=False)
 
     flight_number = forms.CharField(required=False,
                                     widget=forms.TextInput(attrs={
