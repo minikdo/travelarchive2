@@ -81,12 +81,12 @@ class Place(models.Model):
     country = models.ForeignKey('Country', null=True,
                                 on_delete=models.SET_NULL)
     city = models.CharField(max_length=50, blank=True, null=True)
-    place = models.CharField(max_length=50, blank=True, null=True)
+    place = models.CharField(max_length=50, blank=True, null=True,
+                             verbose_name='place / hotel')
     gps = models.CharField(max_length=30, blank=True, null=True)
     notes = models.CharField(max_length=150, blank=True, null=True)
     neigh = models.CharField(max_length=100, blank=True, null=True,
                              verbose_name='neighbourhood')
-    hotel = models.CharField(max_length=100, blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     price = models.CharField(max_length=100, blank=True, null=True)
     

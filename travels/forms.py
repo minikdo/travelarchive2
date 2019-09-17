@@ -57,7 +57,7 @@ class PlaceForm(forms.ModelForm):
     class Meta:
         model = Place
         fields = ['start_date', 'end_date', 'country', 'city',
-                  'neigh', 'place', 'hotel', 'address', 'price',
+                  'neigh', 'place', 'address', 'price',
                   'notes', 'gps']
 
     class Media:

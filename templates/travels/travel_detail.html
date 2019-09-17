@@ -62,9 +62,11 @@
     <td>{{ place.end_date }}</td>
     <td><span class="grey">{{ place.start_date|timesince:place.end_date }}</span></td>
     <td><strong>{{ place.country.country_name }}</strong></td>
-    <td>{{ place.city }}</td>
+    <td>{{ place.city }}</br>
+        <span class="grey">{{ place.neigh|default_if_none:'' }}</span></td>
     <td>{{ place.place|default_if_none:'' }}</br>
-      <span class="grey">{{ place.notes|default_if_none:'' }}</span>
+      <span class="grey">{% if place.price %}{{ place.price }} | 
+        {% endif %}{{ place.notes|default_if_none:'' }}</span>
     </td>
   </tr>
   
