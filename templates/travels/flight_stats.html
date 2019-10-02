@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+
+<h1>Flight Stats</h1>
+
+<div class="row">
+  <div class="six columns">
+    {% if count %}<hr/><h3>Number of flights: {{ count }}, Total distance: {{ total_distance.distance__sum }} km</h3>{% endif %}
+
+    {% if airlines %}
+    <h2>airlines flown most frequently</h2>
+    <table class="table table-striped flights">
+
+      <tr class="warning">
+        <th>airline</th>
+        <th>count</th>
+      </tr>
+      {% for airline in airlines %}
+      <tr>
+        <td class="nowrap">{{ airline.airline__name }}</td>
+        <td>{{ airline.count }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if origs %}
+    <h2>most departed airport</h2>
+    <table class="table table-striped flights">
+      
+      <tr class="warning">
+        <th>airport</th>
+        <th>count</th>
+      </tr>
+      {% for airport in origs %}
+      <tr>
+        <td class="nowrap">{{ airport.orig__city }}, {{ airport.orig__name }}</td>
+        <td>{{ airport.count }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+  </div>
+
+  <div class="six columns">
+    {% if longest %}
+    <h2>the longest flight</h2>
+    <div>{{ longest.date|date:"Y-m-d" }}
+    <span class="grey">{{ longest.time|default_if_none:'&nbsp;' }}</span>
+          <strong>{{ longest.orig.iata }}</strong> {{ longest.orig.city }} &rarr;
+          <strong>{{ longest.dest.iata }}</strong> {{ longest.dest.city }}</div>
+    <div>{{ longest.airline }} {{ longest.flight_number }} </div>
+
+    <div>distance: <span style="color: red;"><strong>{{ longest.distance }} km</strong></span>,
+      duration: {{ longest.duration|time:"H:i" }} hrs,
+      plane: {{ longest.plane|default_if_none:'' }}</div>
+
+    {% endif %}
+    
+    {% if shortest %}
+    <h2 style="margin-top: 40px;">the shortest flight</h2>
+    <div>{{ shortest.date|date:"Y-m-d" }}
+    <span class="grey">{{ shortest.time|default_if_none:'&nbsp;' }}</span>
+          <strong>{{ shortest.orig.iata }}</strong> {{ shortest.orig.city }} &rarr;
+          <strong>{{ shortest.dest.iata }}</strong> {{ shortest.dest.city }}</div>
+    <div>{{ shortest.airline }} {{ shortest.flight_number }} </div>
+
+    <div>distance: <span style="color: blue;"><strong>{{ shortest.distance }} km</strong></span>,
+      duration: {{ shortest.duration|time:"H:i" }} hrs,
+      plane: {{ shortest.plane|default_if_none:'' }}</div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
