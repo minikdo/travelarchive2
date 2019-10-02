@@ -327,6 +327,25 @@ class FlightDelete(LoginRequiredMixin, DeleteView):
                             kwargs={'pk': travel.pk})
 
 
+class FlightStatsView(TemplateView):
+
+    template_name = 'travels/flight_stats.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['airlines'] = Flight.objects.values('airline__name')\
+                                            .annotate(count=Count('airline'))\
+                                            .order_by('-count')[:15]
+        context['origs'] = Flight.objects.values('orig__city', 'orig__name')\
+                                         .annotate(count=Count('orig'))\
+                                         .order_by('-count')[:15]
+        context['longest'] = Flight.objects.order_by('-distance').first()
+        context['shortest'] = Flight.objects.order_by('distance').first()
+
+        return context
+
+
 class CountryAutocomplete(Select2QuerySetView):
     
     def get_queryset(self):
