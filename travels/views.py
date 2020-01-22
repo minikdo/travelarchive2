@@ -18,10 +18,10 @@ import datetime
 
 class IndexView(ListView):
     """ list of travels """
-    
+
     model = Travel
     paginate_by = 40
-    
+
     def get_queryset(self):
         qs = Travel.objects.all().prefetch_related('country')
 
@@ -33,10 +33,10 @@ class IndexView(ListView):
                 pass
             else:
                 qs = qs.filter(country=country)
-        
+
         return qs
-    
-    
+
+
 class CountryView(TemplateView):
     """ country statistics """
 
@@ -51,17 +51,17 @@ class CountryView(TemplateView):
                                              'country_name')
         context['total'] = context['countries'].count()
         return context
-    
+
 
 class TravelDetailView(TemplateView):
 
     template_name = 'travels/travel_detail.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         travel = self.kwargs['pk']
-        
+
         context['travel'] = get_object_or_404(Travel, pk=travel)
         context['places'] = Place.objects\
                                  .filter(travel__pk=travel)\
@@ -81,13 +81,13 @@ class TravelCreate(LoginRequiredMixin, CreateView):
     model = Travel
     form_class = TravelForm
 
-    
+
 class TravelUpdate(LoginRequiredMixin, UpdateView):
     """ edit travel """
 
     model = Travel
     form_class = TravelForm
-    
+
 
 class PlaceCreate(LoginRequiredMixin, CreateView):
     """ add a place """
@@ -97,7 +97,7 @@ class PlaceCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return super().get_success_url()
-        
+
     def form_valid(self, form):
         form.instance.travel_id = self.kwargs.get('travel')
         return super().form_valid(form)
@@ -119,11 +119,12 @@ class PlaceCreate(LoginRequiredMixin, CreateView):
         else:
             start_date = queryset.end_date
             end_date = start_date + datetime.timedelta(days=1)
+            country = queryset.country
 
         return {'start_date': start_date,
                 'end_date': end_date,
                 'country': country}
-    
+
 
 class PlaceUpdate(LoginRequiredMixin, UpdateView):
     """ edit place """
@@ -165,14 +166,14 @@ def place_duplicate(request, pk):
         obj.save()
 
     return redirect(obj)  # FIXME verify this
-    
-    
+
+
 class JourneyCreate(LoginRequiredMixin, CreateView):
     """ add a journey """
 
     model = Journey
     form_class = JourneyForm
-    
+
     def form_valid(self, form):  # FIXME repeated
         form.instance.travel_id = self.kwargs.get('travel')
         return super().form_valid(form)
@@ -186,14 +187,14 @@ class JourneyCreate(LoginRequiredMixin, CreateView):
                     'start_date', 'pk')
         except Journey.DoesNotExist:
             context['last_journey'] = ''
-            
+
         return context
 
     def get_initial(self):
         country = Travel.objects.get(pk=self.kwargs.get('travel'))
         orig = ''
         transport = ''
-        
+
         try:
             queryset = Journey.objects\
                               .filter(travel=self.kwargs.get('travel'))\
@@ -209,7 +210,7 @@ class JourneyCreate(LoginRequiredMixin, CreateView):
                 orig = queryset.dest
             if queryset.transport_type:
                 transport = queryset.transport_type
-                
+
         return {'start_date': start_date,
                 'orig': orig,
                 'transport_type': transport,
@@ -254,9 +255,9 @@ class FlightIndexView(FormMixin, ListView):
             query = query.filter(flight_number__icontains=self.flight_number)
 
         query = query.prefetch_related('orig', 'dest', 'airline')
-            
+
         return query.order_by('-date', '-time')
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['count'] = self.object_list.count()
@@ -277,11 +278,11 @@ class FlightIndexView(FormMixin, ListView):
             initials['airline'] = self.airline
         if self.flight_number:
             initials['flight_number'] = self.flight_number
-            
+
         return initials
-         
+
     def dispatch(self, request, *args, **kwargs):
-    
+
         self.orig = request.GET.get('orig', None)
         self.dest = request.GET.get('dest', None)
         self.airline = request.GET.get('airline', None)
@@ -291,7 +292,7 @@ class FlightIndexView(FormMixin, ListView):
 
 class FlightDetailView(DetailView):
     """ flight details """
-    
+
     model = Flight
 
 
@@ -307,7 +308,7 @@ class FlightCreate(LoginRequiredMixin, CreateView):
 
     def get_initial(self):
         return {'travel': self.kwargs.get('travel')}
-    
+
 
 class FlightUpdate(LoginRequiredMixin, UpdateView):
     """ update a flight """
@@ -347,27 +348,27 @@ class FlightStatsView(TemplateView):
 
 
 class CountryAutocomplete(Select2QuerySetView):
-    
+
     def get_queryset(self):
 
         qs = Country.objects.all()
-        
+
         if self.q:
             qs = qs.filter(country_name__istartswith=self.q)
-            
+
         return qs
 
 
 class AirportAutocomplete(Select2QuerySetView):
-    
+
     def get_queryset(self):
 
         qs = Airport.objects.all()
-        
+
         if self.q:
             qs = qs.filter(Q(iata__contains=self.q) |
                            Q(city__startswith=self.q))
-            
+
         return qs
 
 
@@ -376,8 +377,8 @@ class AirlineAutocomplete(Select2QuerySetView):
     def get_queryset(self):
 
         qs = Airline.objects.all()
-        
+
         if self.q:
             qs = qs.filter(Q(name__istartswith=self.q))
-            
+
         return qs
