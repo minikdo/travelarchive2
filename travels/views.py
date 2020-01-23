@@ -308,17 +308,22 @@ class FlightCreate(LoginRequiredMixin, CreateView):
 
     def get_initial(self):
         date = ''
+        orig = ''
+
         try:
             queryset = Flight.objects\
                              .filter(travel=self.kwargs.get('travel'))\
                              .latest('date', 'pk')
         except Flight.DoesNotExist:
             date = ''
+            orig = ''
         else:
             date = queryset.date
+            orig = queryset.dest
 
         return {'travel': self.kwargs.get('travel'),
-                'date': date}
+                'date': date,
+                'orig': orig}
 
 
 class FlightUpdate(LoginRequiredMixin, UpdateView):
