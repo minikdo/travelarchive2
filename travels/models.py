@@ -120,7 +120,7 @@ class Journey(models.Model):
                                        on_delete=models.SET_NULL)
 
     class Meta:
-        ordering = ['start_date']
+        ordering = ['start_date', 'start_time']
 
     def __str__(self):
         str = "{} {} {} {}".format(self.start_date, self.end_date,
