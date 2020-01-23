@@ -1,5 +1,5 @@
 remote_host: adm
-remote_user: www-data
+remote_user: domino
 git_repo: https://github.com/minikdo/travelarchive2.git
 proj_name: travelarchive2
 proj_path: /var/www/travelarchive2/
