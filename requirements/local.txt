@@ -1,7 +1,7 @@
 -r base.txt # includes the base.txt requirements file
 
-django-debug-toolbar==3.2.*
-django-extensions==3.1.*
-flake8==3.6.0
-ipython==7.1.1
+django-debug-toolbar
+django-extensions
+flake8
+ipython
 
