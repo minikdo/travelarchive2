@@ -22,8 +22,7 @@ class TravelForm(forms.ModelForm):
         }
 
     class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
+        js = ('admin/js/core.js',)
         css = {'all': ('admin/css/forms.css',)}
 
 
@@ -61,8 +60,7 @@ class PlaceForm(forms.ModelForm):
                   'notes', 'gps']
 
     class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
+        js = ('admin/js/core.js',)
         css = {'all': ('admin/css/forms.css',)}
 
 
@@ -90,8 +88,7 @@ class JourneyForm(forms.ModelForm):
                   'notes', 'transport_type']
 
     class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
+        js = ('admin/js/core.js',)
         css = {'all': ('admin/css/forms.css',)}
 
 
@@ -121,8 +118,7 @@ class FlightForm(forms.ModelForm):
                                            attrs={'class': 'form-control'})}
 
     class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
+        js = ('admin/js/core.js',)
         css = {'all': ('admin/css/forms.css',)}
 
 
@@ -148,6 +144,5 @@ class FlightSearchForm(forms.ModelForm):
                                                   'tabindex': 4})}
 
     class Media:
-        js = ('admin/js/vendor/jquery/jquery.js',
-              'admin/js/core.js')
+        js = ('admin/js/core.js',)
         css = {'all': ('admin/css/forms.css',)}
