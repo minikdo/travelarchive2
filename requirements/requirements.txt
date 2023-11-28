@@ -12,7 +12,7 @@ django==3.2.23
     #   django-autocomplete-light
 django-autocomplete-light==3.9.7
     # via -r requirements.in
-pillow==9.5.0
+pillow==10.0.1
     # via -r requirements.in
 psycopg2-binary==2.9.9
     # via -r requirements.in
