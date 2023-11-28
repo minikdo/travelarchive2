@@ -7,7 +7,7 @@ DATABASES = {
         'ENGINE': get_secret('DB_ENGINE'),
         'NAME': get_secret('DB_NAME'),
         'USER': get_secret('DB_USER'),
-        'PASS': get_secret('DB_PASS'),
+        'PASSWORD': get_secret('DB_PASS'),
         'HOST': get_secret('DB_HOST'),
         'PORT': get_secret('DB_PORT'),
     }
