@@ -1,7 +1,6 @@
 /.venv/
 /.envrc
-/static/admin/
-/static/autocomplete_light/
+/static
 /db.sqlite3
 __pycache__/
 .project
