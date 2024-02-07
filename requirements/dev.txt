@@ -12,7 +12,7 @@ asttokens==2.4.1
     # via stack-data
 decorator==5.1.1
     # via ipython
-django==3.2.23
+django==3.2.24
     # via
     #   -c requirements.txt
     #   django-debug-toolbar
